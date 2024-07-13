@@ -1,8 +1,11 @@
-import Image from "next/image";
+// src/app/page.tsx
+
+import Header from './header';
 
 export default function Example() {
   return (
     <div className="bg-white">
+      <Header />
       <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <svg
@@ -20,7 +23,7 @@ export default function Example() {
           </svg>
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Hello! Welcome to your project management app.
+              Hello! Welcome to your project.
               <br />
               <span className="text-indigo-400">Get started today.</span>
             </h2>
@@ -51,6 +54,5 @@ export default function Example() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-
