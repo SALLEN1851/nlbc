@@ -1,6 +1,5 @@
-// src/app/page.tsx
-
 import Header from './header';
+import Footer from './footer';
 
 export default function Example() {
   return (
@@ -23,7 +22,7 @@ export default function Example() {
           </svg>
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Hello! Welcome to your project.
+              Hello! 
               <br />
               <span className="text-indigo-400">Get started today.</span>
             </h2>
@@ -53,6 +52,7 @@ export default function Example() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
