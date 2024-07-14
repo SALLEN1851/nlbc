@@ -1,5 +1,6 @@
 import Header from './header';
 import Footer from './footer';
+import Blog from './blog';
 
 export default function Example() {
   return (
@@ -52,7 +53,9 @@ export default function Example() {
           </div>
         </div>
       </div>
+      
       <Footer />
+      <Blog />
     </div>
   );
 }
