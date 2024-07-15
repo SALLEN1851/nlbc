@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import Header from './header'
+=======
+import Header from './header';
+import Footer from './footer';
+import Blog from './blog';
+>>>>>>> 7d999a334166c95a42467e95961acc622ef13d15
 
 export default function Example() {
   return (
@@ -21,7 +27,11 @@ export default function Example() {
           </svg>
           <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+<<<<<<< HEAD
               Hello! Welcome to your project.
+=======
+              Hello! 
+>>>>>>> 7d999a334166c95a42467e95961acc622ef13d15
               <br />
               <span className="text-indigo-400">Get started today.</span>
             </h2>
@@ -39,6 +49,15 @@ export default function Example() {
                 Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
+            <div className="grid grid-cols-4 gap-4 m-10">
+      <div>01</div>
+      <div>02</div>
+      <div>03</div>
+      <div>04</div>
+      <div>05</div>
+      <div>06</div>
+      <div>07</div>
+      </div>
           </div>
           <div className="relative mt-16 h-80 lg:mt-8">
             <img
@@ -48,10 +67,14 @@ export default function Example() {
               height={1080}
               className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
             />
+      
           </div>
         </div>
       </div>
+    
+      
+      <Footer />
+      <Blog />
     </div>
-  )
+  );
 }
-
