@@ -41,15 +41,7 @@ export default function Example() {
                 Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
-            <div className="grid grid-cols-4 gap-4 m-10">
-      <div>01</div>
-      <div>02</div>
-      <div>03</div>
-      <div>04</div>
-      <div>05</div>
-      <div>06</div>
-      <div>07</div>
-      </div>
+        
           </div>
           <div className="relative mt-16 h-80 lg:mt-8">
             <img
