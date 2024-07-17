@@ -1,11 +1,14 @@
+
 import Header from './header';
 import Footer from './footer';
-import Blog from './blog';
+import Map from './map'; 
+import SearchAddressForm from './SearchAddressForm'; 
 
 export default function Example() {
   return (
-    <div className="bg-white">
+    <div className="text-black bg-white static">
       <Header />
+<<<<<<< HEAD
       <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <svg
@@ -57,8 +60,13 @@ export default function Example() {
       </div>
     
       
+=======
+      <Map />
+    <div className="container mx-auto px-4 py-8 relative -top-20 z-10 max-w-xl">
+      <SearchAddressForm />
+    </div>
+>>>>>>> cb60269f4bd0ff01ed442e7a9ca25f27bd3efd03
       <Footer />
-      <Blog />
     </div>
   );
 }
