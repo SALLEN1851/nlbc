@@ -1,4 +1,3 @@
-
 import Header from './header';
 import Footer from './footer';
 import Map from './map'; 
@@ -8,7 +7,6 @@ export default function Example() {
   return (
     <div className="text-black bg-white static">
       <Header />
-<<<<<<< HEAD
       <div className="mx-auto max-w-7xl py-24 sm:px-6 sm:py-32 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
           <svg
@@ -44,7 +42,6 @@ export default function Example() {
                 Learn more <span aria-hidden="true">→</span>
               </a>
             </div>
-        
           </div>
           <div className="relative mt-16 h-80 lg:mt-8">
             <img
@@ -54,18 +51,9 @@ export default function Example() {
               height={1080}
               className="absolute left-0 top-0 w-[57rem] max-w-none rounded-md bg-white/5 ring-1 ring-white/10"
             />
-      
           </div>
         </div>
       </div>
-    
-      
-=======
-      <Map />
-    <div className="container mx-auto px-4 py-8 relative -top-20 z-10 max-w-xl">
-      <SearchAddressForm />
-    </div>
->>>>>>> cb60269f4bd0ff01ed442e7a9ca25f27bd3efd03
       <Footer />
     </div>
   );
