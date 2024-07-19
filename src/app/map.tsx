@@ -16,7 +16,7 @@ import {
   MattieHarrisCoordinates,
 } from './coordinates'; // Import the coordinates
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2FsbGVuMTA2IiwiYSI6ImNscXlham03ZzBubGcya3BveXJveWRtaTQ.l4TqDA9Ht87uHzHR-e-Vmg';
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2FsbGVuMTg1MSIsImEiOiJjbHlzMTZta2kwZDBzMmxvZ2NlaWMwN2l4In0.CjvkSuei_KsmEkVs6-CgcA';
 
 const Map: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
