@@ -42,7 +42,7 @@ const Map: React.FC = () => {
       paint: {
         'fill-color': fillColor,
         'fill-opacity': 0.3,
-        'fill-outline-color': '#088',
+        // 'fill-outline-color': '#088',
       },
     });
   };
