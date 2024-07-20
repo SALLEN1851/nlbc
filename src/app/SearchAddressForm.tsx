@@ -202,7 +202,7 @@ const SearchAddressForm: React.FC = () => {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-74.5, 40],
       zoom: 9
-    });
+    }, [submitAddress]);
     mapRef.current = map;
 
     const geocoder = new MapboxGeocoder({
