@@ -202,7 +202,7 @@ const SearchAddressForm: React.FC = () => {
       style: 'mapbox://styles/mapbox/streets-v11',
       center: [-74.5, 40],
       zoom: 9
-    }, [submitAddress]);
+    },);
     mapRef.current = map;
 
     const geocoder = new MapboxGeocoder({
@@ -237,7 +237,7 @@ const SearchAddressForm: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <div className="form-container mx-5 p-6 bg-white rounded-xl shadow-xl w-full sm:w-6/12">
+      <div className="form-container mx-5 p-6 -mt-10 mb-10 z-10 bg-white rounded-xl shadow-xl w-full sm:w-6/12">
         <form id="addressForm" onSubmit={handleSubmit} className="space-y-6">
           <div className="form-group">
             <label htmlFor="streetAddress" className="block text-sm font-medium text-gray-700">

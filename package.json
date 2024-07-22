@@ -13,8 +13,11 @@
     "@heroicons/react": "^2.1.5",
     "@mapbox/mapbox-gl-geocoder": "^5.0.2",
     "@turf/turf": "^7.0.0",
+    "@zeit/next-css": "^1.0.1",
+    "css-loader": "^7.1.2",
     "mapbox-gl": "^3.5.1",
     "next": "^14.2.5",
+    "postcss-loader": "^8.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
