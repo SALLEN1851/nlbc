@@ -16,7 +16,7 @@ import {
   MattieHarrisCoordinates,
 } from './coordinates'; // Import the coordinates
 
-mapboxgl.accessToken = 'pk.eyJ1Ijoic2FsbGVuMTg1MSIsImEiOiJjbHlzMTZta2kwZDBzMmxvZ2NlaWMwN2l4In0.CjvkSuei_KsmEkVs6-CgcA';
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
 const Map: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -74,6 +74,8 @@ const Map: React.FC = () => {
       });
 
       document.getElementById('geocoder')?.appendChild(geocoder.onAdd(map));
+
+      
 
       return () => map.remove();
     }
@@ -193,10 +195,12 @@ const Map: React.FC = () => {
     }
   };
 
+  
+
   return (
     <>
       <div ref={mapContainerRef} className="h-96 w-full" id="map" />
-      <div id="geocoder" />
+      {/* <div id="geocoder" /> */}
       <div id="notification" style={{ display: 'none' }} />
     </>
   );
