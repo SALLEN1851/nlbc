@@ -179,7 +179,7 @@ const Map: React.FC = () => {
           },
         };
 
-        const backendResponse = await fetch('https://localhost:5000/api/address', {
+        const backendResponse = await fetch('/api/address', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
