@@ -7,8 +7,6 @@ export default function Example() {
   return (
     <div className="text-black bg-white static">
       <Header />
-     
-     
       <Map />
       <SearchAddressForm />
       <Footer />

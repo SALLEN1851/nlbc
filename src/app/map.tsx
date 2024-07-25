@@ -162,7 +162,7 @@ const Map: React.FC = () => {
           message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
         }
 
-        const notification = document.getElementById('notification');
+        const notification = document.getElementsById('notification');
         if (notification) {
           notification.innerHTML = message;
           notification.style.display = 'block';
@@ -179,7 +179,7 @@ const Map: React.FC = () => {
           },
         };
 
-        const backendResponse = await fetch('/api/address', {
+        const backendResponse = await fetch('https://blkcrws-dfmmzufew-sallen1851s-projects.vercel.app/api/address', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
