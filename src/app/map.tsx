@@ -179,7 +179,7 @@ const Map: React.FC = () => {
           },
         };
 
-        const backendResponse = await fetch('https://blkcrws-dfmmzufew-sallen1851s-projects.vercel.app/api/address', {
+        const backendResponse = await fetch('/api/address', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
