@@ -71,6 +71,7 @@ const SearchAddressForm: React.FC = () => {
       }
       const data = await response.json();
       const coordinates = data.features[0].geometry.coordinates;
+      console.log('Coordinates:', coordinates);
 
       const map = mapRef.current;
       if (map) {

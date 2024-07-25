@@ -63,7 +63,7 @@ export default function Footer() {
           <ul className="list-none space-y-2">
             <li>
               <a
-                href="/wp-content/uploads/2020/05/open-internet-principles-11-19.pdf"
+                href="https://nlbc.com/wp-content/uploads/2020/05/open-internet-principles-11-19.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -73,7 +73,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="/wp-content/uploads/2020/05/acceptable_use_policy-11-10-17.pdf"
+                href="https://nlbc.com/wp-content/uploads/2020/05/acceptable_use_policy-11-10-17.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"
@@ -92,7 +92,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href="/wp-content/uploads/2020/05/0430_12132017_FCCLetter_CST8199_kr.pdf"
+                href="https://nlbc.com/wp-content/uploads/2020/05/0430_12132017_FCCLetter_CST8199_kr.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white"

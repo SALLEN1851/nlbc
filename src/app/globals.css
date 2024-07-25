@@ -36,3 +36,33 @@ body {
   display: none;
 }
 
+.zone-col {
+  @apply flex justify-center items-center flex-col p-4 h-52 relative;
+  flex: 25%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  .zone-col {
+    flex: 100%;
+  }
+}
+
+.arrow {
+  @apply absolute;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 20px solid #FFF;
+  right: -13px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+@media (max-width: 600px) {
+  .arrow {
+    display: none;
+  }
+}
