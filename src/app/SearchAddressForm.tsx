@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
@@ -9,11 +9,32 @@ import PolygonMessage from './PolygonMessage';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
+interface FormData {
+  fullAddress: string;
+}
+
 const SearchAddressForm: React.FC = () => {
   const [notificationMessage, setNotificationMessage] = useState<React.ReactNode>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
-  const submitAddress = async (formData: any) => {
+  useEffect(() => {
+    // Check if the script already exists before adding
+    if (!document.getElementById('search-js')) {
+      const script = document.createElement('script');
+      script.id = 'search-js';
+      script.defer = true;
+      script.src = 'https://api.mapbox.com/search-js/v1.0.0-beta.18/web.js';
+      document.body.appendChild(script);
+
+      script.onload = () => {
+        (window as any).mapboxsearch.autofill({
+          accessToken: process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN,
+        });
+      };
+    }
+  }, []);
+
+  const submitAddress = async (formData: FormData) => {
     try {
       const response = await fetch('/api/address', {
         method: 'POST',
@@ -36,7 +57,7 @@ const SearchAddressForm: React.FC = () => {
     }
   };
 
-  const handleFormSubmit = async (formData: any) => {
+  const handleFormSubmit = async (formData: FormData) => {
     try {
       // Convert the address to geocoordinates using Mapbox Geocoding API
       const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(formData.fullAddress)}.json?access_token=${process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}`);
@@ -103,21 +124,6 @@ const SearchAddressForm: React.FC = () => {
       // Handle the error (e.g., display an error message)
     }
   };
-
- // Check if the script already exists before adding
-    if (!document.getElementById('search-js')) {
-      const script = document.createElement('script');
-      script.id = 'search-js';
-      script.defer = true;
-      script.src = 'https://api.mapbox.com/search-js/v1.0.0-beta.18/web.js';
-      document.body.appendChild(script);
-
-      script.onload = () => {
-        (window as any).mapboxsearch.autofill({
-          accessToken: process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN,
-        });
-      };
-    }
 
   return (
     <div className="flex flex-col justify-center items-center">
