@@ -16,7 +16,8 @@ import {
   MattieHarrisCoordinates,
 } from './coordinates'; // Import the coordinates
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
+
 
 const Map: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -31,8 +32,10 @@ const Map: React.FC = () => {
           type: 'Polygon',
           coordinates: [coordinates],
         },
+        properties: {},
       },
     });
+  
 
     map.addLayer({
       id: id,
