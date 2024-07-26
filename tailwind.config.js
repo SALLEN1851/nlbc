@@ -12,6 +12,9 @@ module.exports = {
         'primary': '#01415A',
         'secondary': '#06B4DF',
       },
+      fontFamily: {
+      sans: ['Open Sans', 'sans-serif'],
+      },
     },
   },
   plugins: [],

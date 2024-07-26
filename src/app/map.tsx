@@ -202,7 +202,7 @@ const Map: React.FC = () => {
 
   return (
     <>
-      <div ref={mapContainerRef} className="h-96 w-full" id="map" />
+      <div ref={mapContainerRef} className="h-[60vh] w-full" id="map" />
       {/* <div id="geocoder" /> */}
       <div id="notification" style={{ display: 'none' }} />
     </>
