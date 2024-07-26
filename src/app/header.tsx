@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -8,7 +7,7 @@ const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-md fixed top-0 w-full z-50">
+    <header className="bg-white shadow-md fixed top-0 w-full z-50 font-sans">
       <nav aria-label="Global" className="mx-auto max-w-6xl p-6 lg:px-8 flex items-center justify-between">
         <div className="flex items-center">
           <a href="https://nlbc.com/" className="-m-1.5 p-1.5">
@@ -34,7 +33,7 @@ const Header: React.FC = () => {
               Pay Bill
             </a>
           </div>
-          <div className="flex space-x-8 mx-12 py-2">
+          <div className="flex space-x-8 mx-12 py-2 font-black">
             <a href="https://nlbc.com/internet/" className="text-m font-bold leading-6 text-gray-900">
               Internet
             </a>
