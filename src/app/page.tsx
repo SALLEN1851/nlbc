@@ -4,7 +4,7 @@ import Map from './map';
 import SearchAddressForm from './SearchAddressForm'; 
 import ZoneContainer from './zoneContainer';
 
-export default function Example() {
+export default function Main() {
   return (
     <div className="text-black bg-white static">
       <Header />

@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
-import Notification from './Notification';
 import PolygonMessage from './PolygonMessage';
 import { WhiteWaterCoordinates } from './coordinates';
 import { MeekRdCoordinates } from './coordinates';
@@ -24,9 +23,7 @@ const SearchAddressForm: React.FC = () => {
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {
-    // Ensure the script is added only on the client side
     if (typeof document !== 'undefined') {
-      // Check if the script already exists before adding
       if (!document.getElementById('search-js')) {
         const script = document.createElement('script');
         script.id = 'search-js';
@@ -125,7 +122,7 @@ const SearchAddressForm: React.FC = () => {
   return (
     <div className="flex flex-col justify-center items-center">
       <AddressForm onSubmit={handleFormSubmit} />
-      <Notification message={notificationMessage} />
+      <div className="m-10 text-xl" id="notification" style={{ display: 'none' }} />
     </div>
   );
 };

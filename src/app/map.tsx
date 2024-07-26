@@ -7,14 +7,14 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import * as turf from '@turf/turf';
 import {
-  polygonCoordinates,
   MeekRdCoordinates,
   WhiteWaterCoordinates,
   SunSetAreaCoordinates,
   LeadLineCoordinates,
   RDOFCoordinates,
   MattieHarrisCoordinates,
-} from './coordinates'; // Import the coordinates
+  NLTC,
+} from './coordinates'; 
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
 
@@ -45,7 +45,6 @@ const Map: React.FC = () => {
       paint: {
         'fill-color': fillColor,
         'fill-opacity': 0.3,
-        // 'fill-outline-color': '#088',
       },
     });
   };
@@ -69,6 +68,7 @@ const Map: React.FC = () => {
         addPolygon(map, LeadLineCoordinates, 'lead-line', '#371F76');
         addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
         addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
+        addPolygon(map, NLTC, 'nltc', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
@@ -203,8 +203,6 @@ const Map: React.FC = () => {
   return (
     <>
       <div ref={mapContainerRef} className="h-[60vh] w-full" id="map" />
-      {/* <div id="geocoder" /> */}
-      <div id="notification" style={{ display: 'none' }} />
     </>
   );
 };
