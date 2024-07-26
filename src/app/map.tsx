@@ -162,7 +162,7 @@ const Map: React.FC = () => {
           message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
         }
 
-        const notification = document.getElementsById('notification');
+        const notification = document.getElementById('notification');
         if (notification) {
           notification.innerHTML = message;
           notification.style.display = 'block';
