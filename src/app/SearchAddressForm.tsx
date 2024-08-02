@@ -112,7 +112,21 @@ const SearchAddressForm: React.FC = () => {
         />
       );
 
-      await submitAddress(formData);
+          // Construct the full form data object
+    const fullFormData = {
+      fullAddress: formData.fullAddress,
+      streetAddress: formData.fullAddress.split(',')[0],
+      city: formData.fullAddress.split(',')[1].trim(),
+      state: formData.fullAddress.split(',')[2].trim().split(' ')[0],
+      zipcode: formData.fullAddress.split(',')[2].trim().split(' ')[1],
+      coordinates: {
+        type: 'Point',
+        coordinates: coordinates,
+      },
+    };
+
+
+      await submitAddress(fullFormData);
 
     } catch (error) {
       console.error('Error:', error);
