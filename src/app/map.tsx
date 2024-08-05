@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import 'mapbox-gl/dist/mapbox-gl.css';
@@ -14,14 +14,23 @@ import {
   RDOFCoordinates,
   MattieHarrisCoordinates,
   NLTC,
-} from './coordinates'; 
+} from './coordinates';
+import PolygonMessage from './PolygonMessage';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
-
 
 const Map: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
+  const [polygonProps, setPolygonProps] = useState({
+    fullAddress: '',
+    isInsideMeekRd: false,
+    isInsideWhiteWater: false,
+    isInsideSunSetArea: false,
+    isInsideLeadLine: false,
+    isInsideRDOF: false,
+    isInsideMattieHarris: false,
+  });
 
   const addPolygon = (map: mapboxgl.Map, coordinates: number[][], id: string, fillColor: string) => {
     map.addSource(id, {
@@ -35,7 +44,6 @@ const Map: React.FC = () => {
         properties: {},
       },
     });
-  
 
     map.addLayer({
       id: id,
@@ -77,8 +85,6 @@ const Map: React.FC = () => {
       });
 
       document.getElementById('geocoder')?.appendChild(geocoder.onAdd(map));
-
-      
 
       return () => map.remove();
     }
@@ -141,68 +147,38 @@ const Map: React.FC = () => {
         const isInsideLeadLine = turf.booleanPointInPolygon(point, polygonLeadLine);
         const isInsideRDOF = turf.booleanPointInPolygon(point, polygonRDOF);
         const isInsideMattieHarris = turf.booleanPointInPolygon(point, mattieHarrisPolygon);
-        const isInsidePolygon =
-          isInsideMeekRd || isInsideWhiteWater || isInsideSunSetArea || isInsideLeadLine || isInsideRDOF || isInsideMattieHarris;
 
-        let message;
-        if (isInsideMeekRd) {
-          message = `You're Qualified! <strong>${fullAddress}</strong> is qualified for fiber optic internet service.`;
-        } else if (isInsideWhiteWater) {
-          message = `You're Qualified! <strong>${fullAddress}</strong> is qualified for fiber optic internet service.`;
-        } else if (isInsideSunSetArea) {
-          message = `You're Qualified! <strong>${fullAddress}</strong> is qualified for fiber optic internet service.`;
-        } else if (isInsideLeadLine) {
-          message = `Area of Interest <strong>${fullAddress}</strong> falls into an area that we are considering for near future fiber deployment.`;
-        } else if (isInsideRDOF) {
-          message = `Pre-Construction <strong>${fullAddress}</strong> is an area that is currently in the pre-construction phase.`;
-        } else if (isInsideMattieHarris) {
-          message = `You're Qualified! <strong>${fullAddress}</strong> is qualified for fiber optic internet service.`;
-        } else {
+        if (
+          !isInsideMeekRd &&
+          !isInsideWhiteWater &&
+          !isInsideSunSetArea &&
+          !isInsideLeadLine &&
+          !isInsideRDOF &&
+          !isInsideMattieHarris
+        ) {
           window.location.href = 'https://nlbc.com/check-service-area/';
-          message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
+          return;
         }
 
-        const notification = document.getElementById('notification');
-        if (notification) {
-          notification.innerHTML = message;
-          notification.style.display = 'block';
-        }
-
-        const formData = {
-          streetAddress: streetAddress,
-          city: city,
-          state: state,
-          zipcode: zipcode,
-          coordinates: {
-            type: 'Point',
-            coordinates: [coordinates[0], coordinates[1]],
-          },
-        };
-
-        const backendResponse = await fetch('/api/address', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData),
+        setPolygonProps({
+          fullAddress,
+          isInsideMeekRd,
+          isInsideWhiteWater,
+          isInsideSunSetArea,
+          isInsideLeadLine,
+          isInsideRDOF,
+          isInsideMattieHarris,
         });
-
-        if (!backendResponse.ok) {
-          console.error('Failed to submit address to backend:', backendResponse.statusText);
-        } else {
-          console.log('Address submitted successfully');
-        }
       }
     } catch (error) {
       console.error('Error:', error);
     }
   };
 
-  
-
   return (
     <>
       <div ref={mapContainerRef} className="h-[60vh] w-full" id="map" />
+      <PolygonMessage {...polygonProps} />
     </>
   );
 };

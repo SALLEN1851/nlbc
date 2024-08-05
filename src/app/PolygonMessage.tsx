@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react';
 
 interface PolygonMessageProps {
@@ -32,13 +30,17 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
   } else if (isInsideWhiteWater) {
-    message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p> <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p> <div>
+    message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
+               <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p>
+               <div>
                    <a href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65" class="button-link">Sign up now</a>
                </div>
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
   } else if (isInsideSunSetArea) {
-    message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p> <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p> <div>
+    message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
+               <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p>
+               <div>
                    <a href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65" class="button-link">Sign up now</a>
                </div>
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
@@ -46,7 +48,8 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
   } else if (isInsideLeadLine) {
     message = `<h2 class="section-heading">Area of Interest</h2><p><strong>${fullAddress}</strong> falls into an area that we are considering for near future fiber deployment.</p>
                <p>We must reach a set number of commitments before construction can begin in this area.<br>
-               If you would like to receive fiber optic internet service at this address, please fill out the information below and click the submit button.</p> <div id="message-section">
+               If you would like to receive fiber optic internet service at this address, please fill out the information below and click the submit button.</p>
+               <div id="message-section">
                    <form id="LeadLineInterest">
                        <div class="form-group">
                            <label for="firstName">First Name:</label>
@@ -87,19 +90,21 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
                </div>`;
   } else if (isInsideRDOF) {
     message = `<h2 class="section-heading">Pre-Construction</h2><p><strong>${fullAddress}</strong> is an area that is currently in the pre-construction phase which means that we will soon begin placing fiber optic internet service in your area.<br>
-               If you would like to pre-order your residential internet service, please click the sign up now button and you can fill out the agreement for service.<p/><div>
+               If you would like to pre-order your residential internet service, please click the sign up now button and you can fill out the agreement for service.</p>
+               <div>
                    <a href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65" class="button-link">Sign up now</a>
                </div>
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
   } else if (isInsideMattieHarris) {
-    message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p> <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p><div>
+    message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
+               <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p>
+               <div>
                    <a href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65" class="button-link">Sign up now</a>
                </div>
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
   } else {
-    window.location.href = 'https://nlbc.com/check-service-area/';
     message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
   }
 
