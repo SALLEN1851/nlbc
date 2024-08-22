@@ -17,7 +17,7 @@ const formDataSchema = new mongoose.Schema({
         validator: function (arr: number[]) {
           return arr.length === 2;
         },
-        message: props => `${props.value} is not a valid coordinates array!`
+        message: (props: {value: number[] }) => `${props.value} is not a valid coordinates array!`
       }
     },
   },
