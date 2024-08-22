@@ -51,7 +51,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       await newFormData.save();
       console.log('Form data saved successfully:', newFormData);
       res.status(200).json({ message: 'Form data saved successfully' });
-    } catch (error) {
+    } 
+    try {
+      console.error('Error saving form data:', error);
+      if (error instanceof mongoose.Error.ValidationError) {
+        res.status(400).json({ message: 'Validation error', error: error.errors });
+      } else {
+        res.status(500).json({ message: 'Internal server error', error: error.message });
+      }
+    }
+    catch (error) {
       console.error('Error saving form data:', error);
       if (error instanceof mongoose.Error.ValidationError) {
         res.status(400).json({ message: 'Validation error', error: error.errors });
