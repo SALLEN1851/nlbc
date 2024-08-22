@@ -53,22 +53,17 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       res.status(200).json({ message: 'Form data saved successfully' });
     } 
     try {
-      console.error('Error saving form data:', error);
-      if (error instanceof mongoose.Error.ValidationError) {
-        res.status(400).json({ message: 'Validation error', error: error.errors });
-      } else {
-        res.status(500).json({ message: 'Internal server error', error: error.message });
-      }
-    }
-    catch (error) {
-      console.error('Error saving form data:', error);
-      if (error instanceof mongoose.Error.ValidationError) {
-        res.status(400).json({ message: 'Validation error', error: error.errors });
-      } else {
-        res.status(500).json({ message: 'Internal server error', error: error.message });
-      }
-    }
+  // Code that might throw an error, like saving form data
+  console.log('Form data saved successfully:', newFormData);
+  res.status(200).json({ message: 'Form data saved successfully' });
+} catch (error) {
+  console.error('Error saving form data:', error);
+  if (error instanceof mongoose.Error.ValidationError) {
+    res.status(400).json({ message: 'Validation error', error: error.errors });
+  } else if (error instanceof Error) {
+    res.status(500).json({ message: 'Internal server error', error: error.message });
   } else {
-    res.status(405).json({ message: 'Method not allowed' });
+    res.status(500).json({ message: 'Internal server error', error: 'An unknown error occurred' });
   }
-};
+}
+
