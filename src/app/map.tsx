@@ -22,6 +22,18 @@ import {
   polygon198,
   polygon214,
   polygon230,
+  polygon22,
+  polygon246,
+  polygon266,
+  polygon282,
+  polygon302,
+  polygon318,
+  polygon334,
+  polygon350,
+  polygon366,
+  polygon38,
+  polygon382,
+  polygon398,
 } from './coordinates';
 import PolygonMessage from './PolygonMessage';
 
@@ -93,6 +105,18 @@ const Map: React.FC = () => {
         addPolygon(map, polygon198, 'polygon-198', '#05B4DF');
         addPolygon(map, polygon214, 'polygon-214', '#05B4DF');
         addPolygon(map, polygon230, 'polygon-230', '#05B4DF');
+        addPolygon(map, polygon22, 'polygon-22', '#05B4DF');
+        addPolygon(map, polygon246, 'polygon-246', '#05B4DF');
+        addPolygon(map, polygon266, 'polygon-266', '#05B4DF');
+        addPolygon(map, polygon282, 'polygon-282', '#05B4DF');
+        addPolygon(map, polygon302, 'polygon-302', '#05B4DF');
+        addPolygon(map, polygon318, 'polygon-318', '#05B4DF');
+        addPolygon(map, polygon334, 'polygon-334', '#05B4DF');
+        addPolygon(map, polygon350, 'polygon-350', '#05B4DF');
+        addPolygon(map, polygon366, 'polygon-366', '#05B4DF');
+        addPolygon(map, polygon38, 'polygon-38', '#05B4DF');
+        addPolygon(map, polygon382, 'polygon-382', '#05B4DF');
+        addPolygon(map, polygon398, 'polygon-398', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
