@@ -91,7 +91,7 @@ const Map: React.FC = () => {
 
         // Adding polygons
         addPolygon(map, SunSetAreaCoordinates, 'sunset-area', '#05B4DF');
-        addPolygon(map, WhiteWaterCoordinates, 'white-water', '#05B4DF');
+        // addPolygon(map, WhiteWaterCoordinates, 'white-water', '#05B4DF');
         addPolygon(map, MeekRdCoordinates, 'meek-rd', '#05B4DF');
         addPolygon(map, LeadLineCoordinates, 'lead-line', '#371F76');
         addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
