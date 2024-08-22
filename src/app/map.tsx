@@ -15,6 +15,13 @@ import {
   MattieHarrisCoordinates,
   NLTC,
   polygon110,
+  polygon126,
+  polygon142,
+  polygon166,
+  polygon182,
+  polygon198,
+  polygon214,
+  polygon230,
 } from './coordinates';
 import PolygonMessage from './PolygonMessage';
 
@@ -79,6 +86,13 @@ const Map: React.FC = () => {
         addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
         addPolygon(map, NLTC, 'nltc', '#05B4DF');
         addPolygon(map, polygon110, 'polygon-110', '#05B4DF');
+        addPolygon(map, polygon126, 'polygon-126', '#05B4DF');
+        addPolygon(map, polygon142, 'polygon-142', '#05B4DF');
+        addPolygon(map, polygon166, 'polygon-166', '#05B4DF');
+        addPolygon(map, polygon182, 'polygon-182', '#05B4DF');
+        addPolygon(map, polygon198, 'polygon-198', '#05B4DF');
+        addPolygon(map, polygon214, 'polygon-214', '#05B4DF');
+        addPolygon(map, polygon230, 'polygon-230', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
