@@ -17,7 +17,7 @@ const formDataSchema = new mongoose.Schema({
         validator: function (arr: number[]) {
           return arr.length === 2;
         },
-        message: (props: {value: number[] }) => `${props.value} is not a valid coordinates array!`
+        message: (props: { value: number[] }) => `${props.value} is not a valid coordinates array!`
       }
     },
   },
@@ -46,16 +46,16 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         return res.status(400).json({ message: 'Invalid coordinates format' });
       }
 
-    try {
       // Create a new document
       const newFormData = new FormData(req.body);
       await newFormData.save();
-      
+  
       console.log('Form data saved successfully:', newFormData);
       res.status(200).json({ message: 'Form data saved successfully' });
+
     } catch (error) {
       console.error('Error saving form data:', error);
-      
+  
       if (error instanceof mongoose.Error.ValidationError) {
         res.status(400).json({ message: 'Validation error', error: error.errors });
       } else if (error instanceof Error) {
@@ -63,4 +63,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       } else {
         res.status(500).json({ message: 'Internal server error', error: 'An unknown error occurred' });
       }
-    };
+    }
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
+};
