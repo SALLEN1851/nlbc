@@ -34,6 +34,7 @@ import {
   polygon38,
   polygon382,
   polygon398,
+  polygon442,
 } from './coordinates';
 import PolygonMessage from './PolygonMessage';
 
@@ -117,6 +118,8 @@ const Map: React.FC = () => {
         addPolygon(map, polygon38, 'polygon-38', '#05B4DF');
         addPolygon(map, polygon382, 'polygon-382', '#05B4DF');
         addPolygon(map, polygon398, 'polygon-398', '#05B4DF');
+        addPolygon(map, polygon414, 'polygon-414', '#05B4DF');
+        addPolygon(map, polygon442, 'polygon-442', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
