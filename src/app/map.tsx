@@ -78,7 +78,7 @@ const Map: React.FC = () => {
         addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
         addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
         addPolygon(map, NLTC, 'nltc', '#05B4DF');
-        addPolygon(map, polygon110, 'polygon-110', '#000000');
+        addPolygon(map, polygon110, 'polygon-110', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
