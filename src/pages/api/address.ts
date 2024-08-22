@@ -63,4 +63,4 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       } else {
         res.status(500).json({ message: 'Internal server error', error: 'An unknown error occurred' });
       }
-    }
+    };
