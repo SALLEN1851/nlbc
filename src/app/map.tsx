@@ -125,7 +125,7 @@ const Map: React.FC = () => {
         addPolygon(map, polygon398, 'polygon-398', '#05B4DF');
         addPolygon(map, polygon442, 'polygon-442', '#05B4DF');
         addPolygon(map, polygon411Coordinates, 'polygon-411', '#05B4DF');
-        addPolygon(map, RDOF2, 'rdof2', '#05B4DF');
+        // addPolygon(map, RDOF2, 'rdof2', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
