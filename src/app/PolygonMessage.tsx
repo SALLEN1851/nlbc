@@ -131,7 +131,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
     message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
   }
 
-  return
+  return <div dangerouslySetInnerHTML={{ __html: message }} />;
 };
 
 export default PolygonMessage;
