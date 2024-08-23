@@ -8,6 +8,7 @@ interface PolygonMessageProps {
   isInsideLeadLine: boolean;
   isInsideRDOF: boolean;
   isInsideMattieHarris: boolean;
+  isInsidePolygon411: boolean;
 }
 
 const PolygonMessage: React.FC<PolygonMessageProps> = ({
