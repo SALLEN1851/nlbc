@@ -53,6 +53,7 @@ const Map: React.FC = () => {
     isInsideLeadLine: false,
     isInsideRDOF: false,
     isInsideMattieHarris: false,
+    isInsidePolygon411: false,
   });
 
   const addPolygon = (map: mapboxgl.Map, coordinates: number[][], id: string, fillColor: string) => {
@@ -217,6 +218,7 @@ const Map: React.FC = () => {
           isInsideLeadLine,
           isInsideRDOF,
           isInsideMattieHarris,
+          isInsidePolygon411,
         });
       }
     } catch (error) {
