@@ -202,7 +202,7 @@ const Map: React.FC = () => {
           !isInsideSunSetArea &&
           !isInsideLeadLine &&
           !isInsideRDOF &&
-          !isInsideMattieHarris
+          !isInsideMattieHarris &&
           !isInsidePolygon411
         ) {
           window.location.href = 'https://nlbc.com/check-service-area/';
