@@ -96,12 +96,12 @@ const Map: React.FC = () => {
         mapRef.current = map;
 
         // Adding polygons
-        addPolygon(map, SunSetAreaCoordinates, 'sunset-area', '#05B4DF');
+        // addPolygon(map, SunSetAreaCoordinates, 'sunset-area', '#05B4DF');
         // addPolygon(map, WhiteWaterCoordinates, 'white-water', '#05B4DF');
         addPolygon(map, MeekRdCoordinates, 'meek-rd', '#05B4DF');
         addPolygon(map, LeadLineCoordinates, 'lead-line', '#371F76');
         addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
-        addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
+        // addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
         addPolygon(map, NLTC, 'nltc', '#05B4DF');
         addPolygon(map, polygon110, 'polygon-110', '#05B4DF');
         addPolygon(map, polygon126, 'polygon-126', '#05B4DF');
