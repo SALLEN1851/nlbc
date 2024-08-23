@@ -31,7 +31,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
 
   if (isInsideNLTC) {
     return (
-      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+      `<div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">You're Qualified!</h2>
         <p>
           <strong>{fullAddress}</strong> is qualified for fiber optic internet service through NLTC.
@@ -50,7 +50,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
             please click here to fill out our contact form to have a representative reach out to you.
           </a>
         </p>
-      </div>
+      </div>`
     );
   }
 
