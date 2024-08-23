@@ -8,6 +8,7 @@ interface PolygonMessageProps {
   isInsideLeadLine: boolean;
   isInsideRDOF: boolean;
   isInsideMattieHarris: boolean;
+  isInsideNLTC: boolean;
   isInsidePolygon411: boolean;
   hasSearched: boolean;
 }
@@ -20,6 +21,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
   isInsideLeadLine,
   isInsideRDOF,
   isInsideMattieHarris,
+  isInsideNLTC,
   isInsidePolygon411,
   hasSearched,
 }) => {
@@ -112,7 +114,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
                </div>
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
-                } else if (isInsidePolygon411) {
+} else if (isInsidePolygon411) {
     message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
                <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p>
                <div>
@@ -120,7 +122,13 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
                </div>
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
-  } else {
+  } else if (isInsideNLTC) {
+  message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p> <p>If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p><div>
+                 <a href="https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff" class="button-link">Sign up now</a>
+             </div>
+             <p>If you are interested in a commercial internet service or would like to speak with a representative, 
+                 <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
+ } else {
     message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
   }
 
