@@ -20,7 +20,7 @@ interface FormData {
 }
 
 const SearchAddressForm: React.FC = () => {
-  const [notificationMessage, setNotificationMessage] = useState<React.ReactNode>(null);
+  // const [notificationMessage, setNotificationMessage] = useState<React.ReactNode>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {

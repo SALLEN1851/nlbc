@@ -16,4 +16,4 @@ const Notification: React.FC<NotificationProps> = ({ message }) => {
   );
 };
 
-// export default Notification;
+export default Notification;
