@@ -5,14 +5,7 @@ import mapboxgl from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
 import PolygonMessage from './PolygonMessage';
-import { WhiteWaterCoordinates } from './coordinates';
-import { MeekRdCoordinates } from './coordinates';
-import { LeadLineCoordinates } from './coordinates';
-import { RDOFCoordinates } from './coordinates';
-import { MattieHarrisCoordinates } from './coordinates';
-import { NLTC } from './coordinates';
-import { SunSetAreaCoordinates } from './coordinates';
-import { polygon411Coordinates } from './coordinates';
+import { WhiteWaterCoordinates, MeekRdCoordinates, LeadLineCoordinates, RDOFCoordinates, MattieHarrisCoordinates, NLTC, SunSetAreaCoordinates, polygon411Coordinates } from './coordinates';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
 
@@ -123,22 +116,21 @@ const SearchAddressForm: React.FC = () => {
         />
       );
 
-      // Hide form and show notification message
+      // Hide the form after submission
       setShowForm(false);
 
-          // Construct the full form data object
-    const fullFormData = {
-      fullAddress: formData.fullAddress,
-      streetAddress: formData.fullAddress.split(',')[0],
-      city: formData.fullAddress.split(',')[1].trim(),
-      state: formData.fullAddress.split(',')[2].trim().split(' ')[0],
-      zipcode: formData.fullAddress.split(',')[2].trim().split(' ')[1],
-      coordinates: {
-        type: 'Point',
-        coordinates: coordinates,
-      },
-    };
-
+      // Construct the full form data object
+      const fullFormData = {
+        fullAddress: formData.fullAddress,
+        streetAddress: formData.fullAddress.split(',')[0],
+        city: formData.fullAddress.split(',')[1].trim(),
+        state: formData.fullAddress.split(',')[2].trim().split(' ')[0],
+        zipcode: formData.fullAddress.split(',')[2].trim().split(' ')[1],
+        coordinates: {
+          type: 'Point',
+          coordinates: coordinates,
+        },
+      };
 
       await submitAddress(fullFormData);
 
@@ -149,8 +141,8 @@ const SearchAddressForm: React.FC = () => {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <AddressForm onSubmit={handleFormSubmit} />
-      <div className="m-10 text-xl" id="notification" style={{ display: 'none' }} />
+      {showForm && <AddressForm onSubmit={handleFormSubmit} />}  {/* Conditionally render the form */}
+      {!showForm && <div className="m-10 text-xl">{notificationMessage}</div>}  {/* Conditionally render the notification message */}
     </div>
   );
 };
