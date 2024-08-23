@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
-import PolygonMessage from './PolygonMessage';
+// import PolygonMessage from './PolygonMessage';
 import { WhiteWaterCoordinates } from './coordinates';
 import { MeekRdCoordinates } from './coordinates';
 import { LeadLineCoordinates } from './coordinates';
