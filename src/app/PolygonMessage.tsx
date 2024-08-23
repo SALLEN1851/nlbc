@@ -29,13 +29,37 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
     return null;
   }
 
+  if (isInsideNLTC) {
+    return (
+      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+        <h2 className="text-2xl font-semibold mb-4">You're Qualified!</h2>
+        <p>
+          <strong>{fullAddress}</strong> is qualified for fiber optic internet service through NLTC.
+        </p>
+        <p className="mt-4">
+          If you would like fiber optic internet service at your residence, please click the sign-up now button and you can fill out the residential service agreement.
+        </p>
+        <div className="mt-4">
+          <a href="https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff" className="inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600">
+            Sign up now
+          </a>
+        </div>
+        <p className="mt-4">
+          If you are interested in a commercial internet service or would like to speak with a representative,{' '}
+          <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link" className="text-blue-500 underline hover:text-blue-700">
+            please click here to fill out our contact form to have a representative reach out to you.
+          </a>
+        </p>
+      </div>
+    );
+  }
+
   if (
     isInsideMeekRd ||
     isInsideWhiteWater ||
     isInsideSunSetArea ||
     isInsideMattieHarris ||
-    isInsidePolygon411 ||
-    isInsideNLTC
+    isInsidePolygon411
   ) {
     return (
       <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
@@ -47,7 +71,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
           If you would like fiber optic internet service at your residence, please click the sign-up now button and you can fill out the residential service agreement.
         </p>
         <div className="mt-4">
-          <a href="https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff" className="inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600">
+          <a href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65" className="inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600">
             Sign up now
           </a>
         </div>
@@ -115,20 +139,6 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
       </div>
     );
   }
-
-
-  if (isInsideNLTC) {
-  message = `<div class="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
-    <h2 class="text-2xl font-semibold mb-4">You're Qualified!</h2>
-    <p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
-    <p class="mt-4">If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p>
-    <div class="mt-4">
-        <a href="https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff" class="inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600">Sign up now</a>
-    </div>
-    <p class="mt-4">If you are interested in a commercial internet service or would like to speak with a representative, 
-        <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link" class="text-blue-500 underline hover:text-blue-700">please click here to fill out our contact form to have a representative reach out to you.</a>
-    </p>
-</div>`;
 
   if (isInsideRDOF) {
     return (
