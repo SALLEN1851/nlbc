@@ -186,6 +186,7 @@ const Map: React.FC = () => {
         const polygonLeadLine = turf.polygon([LeadLineCoordinates]);
         const polygonRDOF = turf.polygon([RDOFCoordinates]);
         const mattieHarrisPolygon = turf.polygon([MattieHarrisCoordinates]);
+        const polygon411 = turf.polygon([polygon411]);
 
         const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
         const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
@@ -193,6 +194,7 @@ const Map: React.FC = () => {
         const isInsideLeadLine = turf.booleanPointInPolygon(point, polygonLeadLine);
         const isInsideRDOF = turf.booleanPointInPolygon(point, polygonRDOF);
         const isInsideMattieHarris = turf.booleanPointInPolygon(point, mattieHarrisPolygon);
+        const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
 
         if (
           !isInsideMeekRd &&
@@ -201,6 +203,7 @@ const Map: React.FC = () => {
           !isInsideLeadLine &&
           !isInsideRDOF &&
           !isInsideMattieHarris
+          !isInsidePolygon411
         ) {
           window.location.href = 'https://nlbc.com/check-service-area/';
           return;
