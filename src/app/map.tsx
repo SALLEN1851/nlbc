@@ -36,6 +36,7 @@ import {
   polygon398,
   polygon442,
   RDOF2,
+  polygon411,
 } from './coordinates';
 import PolygonMessage from './PolygonMessage';
 
@@ -120,6 +121,7 @@ const Map: React.FC = () => {
         addPolygon(map, polygon382, 'polygon-382', '#05B4DF');
         addPolygon(map, polygon398, 'polygon-398', '#05B4DF');
         addPolygon(map, polygon442, 'polygon-442', '#05B4DF');
+        addPolygon(map, polygon411, 'polygon-411', '#05B4DF');
         addPolygon(map, RDOF2, 'rdof2', '#05B4DF');
       });
 
