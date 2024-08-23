@@ -124,7 +124,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
   } else if (isInsideNLTC) {
 
-  message = <div class="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+  message = `<div class="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
     <h2 class="text-2xl font-semibold mb-4">You're Qualified!</h2>
     <p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
     <p class="mt-4">If you would like fiber optic internet service at your residence, please click the sign up now button and you can fill out the residential service agreement.</p>
@@ -134,7 +134,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
     <p class="mt-4">If you are interested in a commercial internet service or would like to speak with a representative, 
         <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link" class="text-blue-500 underline hover:text-blue-700">please click here to fill out our contact form to have a representative reach out to you.</a>
     </p>
-</div>;
+</div>`;
  } else {
     message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
   }
