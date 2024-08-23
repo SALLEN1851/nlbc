@@ -20,6 +20,7 @@ interface FormData {
 }
 
 const SearchAddressForm: React.FC = () => {
+  const [hasSearched, setHasSearched] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState<React.ReactNode>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
@@ -113,6 +114,7 @@ const SearchAddressForm: React.FC = () => {
           isInsideRDOF={isInsideRDOF}
           isInsideMattieHarris={isInsideMattieHarris}
           isInsidePolygon411={isInsidePolygon411}
+          hasSearched={hasSearched}
         />
       );
 
