@@ -119,7 +119,7 @@ const SearchAddressForm: React.FC = () => {
           isInsideMattieHarris={isInsideMattieHarris}
           isInsideNLTC={isInsideNLTC}
           isInsidePolygon411={isInsidePolygon411}
-          hasSearched={hasSearched}
+          hasSearched={true}
         />
       );
 
