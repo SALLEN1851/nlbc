@@ -221,6 +221,7 @@ const Map: React.FC = () => {
           isInsideRDOF,
           isInsideMattieHarris,
           isInsidePolygon411,
+          showMessage: true,
           hasSearched: true,
         });
       }
