@@ -87,7 +87,7 @@ const Map: React.FC = () => {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         style: 'mapbox://styles/mapbox/light-v10',
-        center: [-85.2913559, 39.8089351],
+        center: [-85.157944, 39.910799],
         zoom: 10,
       });
 
