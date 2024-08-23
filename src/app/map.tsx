@@ -102,7 +102,7 @@ const Map: React.FC = () => {
         addPolygon(map, LeadLineCoordinates, 'lead-line', '#371F76');
         // addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
         // addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
-        addPolygon(map, NLTC, 'nltc', '#05B4DF');
+        // addPolygon(map, NLTC, 'nltc', '#05B4DF');
         addPolygon(map, polygon110, 'polygon-110', '#05B4DF');
         addPolygon(map, polygon126, 'polygon-126', '#05B4DF');
         addPolygon(map, polygon142, 'polygon-142', '#05B4DF');
