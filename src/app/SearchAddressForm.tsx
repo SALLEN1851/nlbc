@@ -23,6 +23,7 @@ interface FormData {
 const SearchAddressForm: React.FC = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [notificationMessage, setNotificationMessage] = useState<React.ReactNode>(null);
+  const [showForm, setShowForm] = useState(true);
   const mapRef = useRef<mapboxgl.Map | null>(null);
 
   useEffect(() => {
@@ -121,6 +122,9 @@ const SearchAddressForm: React.FC = () => {
           hasSearched={hasSearched}
         />
       );
+
+      // Hide form and show notification message
+      setShowForm(false);
 
           // Construct the full form data object
     const fullFormData = {
