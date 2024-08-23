@@ -92,7 +92,8 @@ const SearchAddressForm: React.FC = () => {
       const polygonLeadLine = turf.polygon([LeadLineCoordinates]);
       const polygonRDOF = turf.polygon([RDOFCoordinates]);
       const mattieHarrisPolygon = turf.polygon([MattieHarrisCoordinates]);
-      const polygon411 = turf.polygon([polygon411]);
+  
+const polygon411 = turf.polygon([polygon411Coordinates]);
 
       const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
       const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
