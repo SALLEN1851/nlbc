@@ -139,10 +139,25 @@ const SearchAddressForm: React.FC = () => {
     }
   };
 
+  const handleResetForm = () => {
+    setShowForm(true);
+    setNotificationMessage(null);
+  };
+
   return (
     <div className="flex flex-col justify-center items-center">
       {showForm && <AddressForm onSubmit={handleFormSubmit} />}  {/* Conditionally render the form */}
-      {!showForm && <div className="m-10 text-xl">{notificationMessage}</div>}  {/* Conditionally render the notification message */}
+      {!showForm && (
+        <div className="m-10 text-xl">
+          {notificationMessage}
+          <button
+            onClick={handleResetForm}
+            className="mt-4 px-4 py-2 bg-gray-500 text-white rounded shadow hover:bg-gray-600"
+          >
+            Reset Form
+          </button>
+        </div>
+      )}  {/* Conditionally render the notification message and reset button */}
     </div>
   );
 };
