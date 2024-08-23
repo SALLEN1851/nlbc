@@ -138,7 +138,7 @@ const SearchAddressForm: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center -mt-10">
       <AddressForm onSubmit={handleFormSubmit} />
       <div className="m-10 text-xl" id="notification" style={{ display: 'none' }} />
     </div>
