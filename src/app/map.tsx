@@ -55,6 +55,7 @@ const Map: React.FC = () => {
     isInsideMattieHarris: false,
     isInsidePolygon411: false,
     showMessage: false,
+    hasSearched: false,
   });
 
   const addPolygon = (map: mapboxgl.Map, coordinates: number[][], id: string, fillColor: string) => {
@@ -220,7 +221,7 @@ const Map: React.FC = () => {
           isInsideRDOF,
           isInsideMattieHarris,
           isInsidePolygon411,
-          showMessage: true,
+          hasSearched: true,
         });
       }
     } catch (error) {
