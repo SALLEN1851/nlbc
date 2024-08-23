@@ -9,6 +9,7 @@ interface PolygonMessageProps {
   isInsideRDOF: boolean;
   isInsideMattieHarris: boolean;
   isInsidePolygon411: boolean;
+  hasSearched: boolean;
 }
 
 const PolygonMessage: React.FC<PolygonMessageProps> = ({
@@ -22,6 +23,10 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
   isInsidePolygon411,
 }) => {
   let message;
+
+  if (!hasSearched) {
+    return null;
+  }
 
   if (isInsideMeekRd) {
     message = `<h2 class="section-heading">You're Qualified!</h2><p><strong>${fullAddress}</strong> is qualified for fiber optic internet service.</p>
@@ -115,7 +120,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
                <p>If you are interested in a commercial internet service or would like to speak with a representative, 
                    <a href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr" id="form-link">please click here to fill out our contact form to have a representative reach out to you.</a> </p>`;
   } else {
-    message = `Contact us TEST to confirm service availability at <strong>${fullAddress}</strong>.`;
+    message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
   }
 
   return <div dangerouslySetInnerHTML={{ __html: message }} />;
