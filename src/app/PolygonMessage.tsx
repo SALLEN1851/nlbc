@@ -21,6 +21,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
   isInsideRDOF,
   isInsideMattieHarris,
   isInsidePolygon411,
+  hasSearched,
 }) => {
   let message;
 
