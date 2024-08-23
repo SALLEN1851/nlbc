@@ -10,6 +10,7 @@ import { MeekRdCoordinates } from './coordinates';
 import { LeadLineCoordinates } from './coordinates';
 import { RDOFCoordinates } from './coordinates';
 import { MattieHarrisCoordinates } from './coordinates';
+import { NLTC } from './coordinates';
 import { SunSetAreaCoordinates } from './coordinates';
 import { polygon411Coordinates } from './coordinates';
 
@@ -94,6 +95,7 @@ const SearchAddressForm: React.FC = () => {
       const polygonLeadLine = turf.polygon([LeadLineCoordinates]);
       const polygonRDOF = turf.polygon([RDOFCoordinates]);
       const mattieHarrisPolygon = turf.polygon([MattieHarrisCoordinates]);
+      const polygonNLTC = turf.polygon([NLTC]);
       const polygon411 = turf.polygon([polygon411Coordinates]);
 
       const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
@@ -102,6 +104,7 @@ const SearchAddressForm: React.FC = () => {
       const isInsideLeadLine = turf.booleanPointInPolygon(point, polygonLeadLine);
       const isInsideRDOF = turf.booleanPointInPolygon(point, polygonRDOF);
       const isInsideMattieHarris = turf.booleanPointInPolygon(point, mattieHarrisPolygon);
+      const isInsideNLTC = turf.booleanPointInPolygon(point, polygonNLTC);
       const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
 
       setNotificationMessage(
@@ -113,6 +116,7 @@ const SearchAddressForm: React.FC = () => {
           isInsideLeadLine={isInsideLeadLine}
           isInsideRDOF={isInsideRDOF}
           isInsideMattieHarris={isInsideMattieHarris}
+          isInsideNLTC={isInsideNLTC}
           isInsidePolygon411={isInsidePolygon411}
           hasSearched={hasSearched}
         />
