@@ -47,9 +47,33 @@ const SearchAddressForm: React.FC = () => {
     }
   }, []);
 
+  const submitAddress = async (fullFormData: any) => {
+    try {
+      const response = await fetch('/api/address', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(fullFormData),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to submit address:', response.statusText);
+      } else {
+        console.log('Address submitted successfully');
+      }
+    } catch (error) {
+      console.error('Error submitting address:', error);
+    }
+  };
+
   const handleFormSubmit = async (formData: FormData) => {
     try {
-      const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(formData.fullAddress)}.json?access_token=${mapboxgl.accessToken}`);
+      const response = await fetch(
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(
+          formData.fullAddress
+        )}.json?access_token=${mapboxgl.accessToken}`
+      );
       if (!response.ok) {
         throw new Error('Failed to geocode address');
       }
@@ -57,7 +81,7 @@ const SearchAddressForm: React.FC = () => {
       const coordinates = data.features[0].geometry.coordinates;
       console.log('Coordinates:', coordinates);
       setShowForm(false);
-      setFullAddress(formData.fullAddress);  // Store the full address in state
+      setFullAddress(formData.fullAddress); // Store the full address in state
       const map = mapRef.current;
       if (map) {
         map.flyTo({
@@ -85,7 +109,9 @@ const SearchAddressForm: React.FC = () => {
         { type: 'qualified', polygon: turf.polygon([polygon411Coordinates]) },
       ];
 
-      const foundArea = polygons.find(({ polygon }) => turf.booleanPointInPolygon(point, polygon));
+      const foundArea = polygons.find(({ polygon }) =>
+        turf.booleanPointInPolygon(point, polygon)
+      );
 
       setAreaType(foundArea?.type || null);
       setHasSearched(true);
