@@ -37,8 +37,8 @@ import {
   polygon442,
   RDOF2,
   polygon411Coordinates,
-  indianTrail,
-  indianTrail2
+  indianTrailCoordinates,
+  indianTrail2Coordinates
 } from './coordinates';
 import PolygonMessage from './PolygonMessage';
 
