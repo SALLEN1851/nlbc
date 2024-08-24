@@ -1,0 +1,38 @@
+{
+  "name": "nlbc",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.1.2",
+    "@heroicons/react": "^2.1.5",
+    "@mapbox/mapbox-gl-geocoder": "^4.7.4",
+    "@turf/turf": "^7.0.0",
+    "@zeit/next-css": "^1.0.1",
+    "css-loader": "^7.1.2",
+    "mapbox-gl": "^2.15.0",
+    "mongodb": "^6.8.0",
+    "mongoose": "^8.5.1",
+    "next": "^14.2.5",
+    "postcss-loader": "^8.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/mapbox__mapbox-gl-geocoder": "^5.0.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5"
+  }
+}
