@@ -14,7 +14,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, 
   const messages: { [key: string]: React.ReactNode } = {
     qualified: (
       <>
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">You're Qualified!</h2>
+        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">You&apos;re Qualified!</h2>
         <p className="text-lg text-gray-600 leading-relaxed mb-4">
           <strong className="text-gray-900">{fullAddress}</strong> is qualified for fiber optic internet service.
         </p>
@@ -69,7 +69,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, 
     ),
     nltc: (
       <>
-        <h2 className="text-2xl font-semibold mb-4">You're Qualified!</h2>
+        <h2 className="text-2xl font-semibold mb-4">You&apos;re Qualified!</h2>
         <p>
           <strong>{fullAddress}</strong> is qualified for fiber optic internet service.
         </p>
