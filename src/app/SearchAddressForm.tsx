@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
-import PolygonMessage from './PolygonMessage';
+// import PolygonMessage from './PolygonMessage';
 import { WhiteWaterCoordinates, MeekRdCoordinates, LeadLineCoordinates, RDOFCoordinates, MattieHarrisCoordinates, NLTC, SunSetAreaCoordinates, polygon411Coordinates } from './coordinates';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
@@ -66,7 +66,7 @@ const SearchAddressForm: React.FC = () => {
       const data = await response.json();
       const coordinates = data.features[0].geometry.coordinates;
       console.log('Coordinates:', coordinates);
-
+      setShowForm(false);
       const map = mapRef.current;
       if (map) {
         map.flyTo({
@@ -140,7 +140,7 @@ const SearchAddressForm: React.FC = () => {
   };
 
   const handleResetForm = () => {
-    setShowForm(true);
+    setShowForm(false);
     setNotificationMessage(null);
   };
 
