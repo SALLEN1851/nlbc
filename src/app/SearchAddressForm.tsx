@@ -101,20 +101,20 @@ const SearchAddressForm: React.FC = () => {
       const isInsideNLTC = turf.booleanPointInPolygon(point, polygonNLTC);
       const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
 
-      setNotificationMessage(
-        <PolygonMessage
-          fullAddress={formData.fullAddress}
-          isInsideMeekRd={isInsideMeekRd}
-          isInsideWhiteWater={isInsideWhiteWater}
-          isInsideSunSetArea={isInsideSunSetArea}
-          isInsideLeadLine={isInsideLeadLine}
-          isInsideRDOF={isInsideRDOF}
-          isInsideMattieHarris={isInsideMattieHarris}
-          isInsideNLTC={isInsideNLTC}
-          isInsidePolygon411={isInsidePolygon411}
-          hasSearched={true}
-        />
-      );
+      // setNotificationMessage(
+      //   <PolygonMessage
+      //     fullAddress={formData.fullAddress}
+      //     isInsideMeekRd={isInsideMeekRd}
+      //     isInsideWhiteWater={isInsideWhiteWater}
+      //     isInsideSunSetArea={isInsideSunSetArea}
+      //     isInsideLeadLine={isInsideLeadLine}
+      //     isInsideRDOF={isInsideRDOF}
+      //     isInsideMattieHarris={isInsideMattieHarris}
+      //     isInsideNLTC={isInsideNLTC}
+      //     isInsidePolygon411={isInsidePolygon411}
+      //     hasSearched={true}
+      //   />
+      // );
 
       // Hide the form after submission
       setShowForm(false);
