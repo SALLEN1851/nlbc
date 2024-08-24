@@ -37,7 +37,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
     isInsideSunSetArea
   ) {
     return (
-      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+      `<div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
         <h2 className="text-2xl font-semibold mb-4">You're Qualified!</h2>
         <p>
           <strong>{fullAddress}</strong> is qualified for fiber optic internet service.
@@ -64,18 +64,18 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
             please click here to fill out our contact form to have a representative reach out to you.
           </a>
         </p>
-      </div>
+      </div>`
     );
   } else if (isInsideNLTC) {
     return (
-      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+      `<div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
         {/* Similar JSX structure with NLTC-specific content */}
         {/* ... */}
-      </div>
+      </div>`
     );
   } else if (isInsideLeadLine) {
     return (
-      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+      `<div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
         <h2 className="section-heading">Area of Interest</h2>
         <p>
           <strong>{fullAddress}</strong> falls into an area that we are considering for near future fiber
@@ -93,11 +93,11 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
             {/* ... */}
           </form>
         </div>
-      </div>
+      </div>`
     );
   } else if (isInsideRDOF) {
     return (
-      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+      `<div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
         <h2 className="section-heading">Pre-Construction</h2>
         <p>
           <strong>{fullAddress}</strong> is an area that is currently in the pre-construction phase which
@@ -120,15 +120,15 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
             please click here to fill out our contact form to have a representative reach out to you.
           </a>
         </p>
-      </div>
+      </div>`
     );
   } else {
     return (
-      <div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
+      `<div className="mx-auto my-10 p-6 max-w-lg border border-gray-300 shadow-lg bg-white rounded-lg">
         <p>
           Contact us to confirm service availability at <strong>{fullAddress}</strong>.
         </p>
-      </div>
+      </div>`
     );
   }
 };
