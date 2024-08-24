@@ -198,8 +198,8 @@ const Map: React.FC = () => {
         const mattieHarrisPolygon = turf.polygon([MattieHarrisCoordinates]);
         const polygonNLTC = turf.polygon([NLTC]);
         const polygon411 = turf.polygon([polygon411Coordinates]);
-        const indianTrail = turf.polygon([indianTrail]);
-        const indianTrail2 = turf.polygon([indianTrail2]);
+        const indianTrail = turf.polygon([indianTrailCoordinates]);
+        const indianTrail2 = turf.polygon([indianTrail2Coordinates]);
 
         const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
         const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
