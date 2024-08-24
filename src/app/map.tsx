@@ -37,6 +37,8 @@ import {
   polygon442,
   RDOF2,
   polygon411Coordinates,
+  indianTrail,
+  indianTrail2
 } from './coordinates';
 import PolygonMessage from './PolygonMessage';
 
@@ -55,6 +57,8 @@ const Map: React.FC = () => {
     isInsideMattieHarris: false,
     isInsidePolygon411: false,
     isInsideNLTC: false,
+    isInsideIndianTrail: false,
+    isInsideindianTrail2: false,
     showMessage: false,
     hasSearched: false,
   });
@@ -106,10 +110,10 @@ const Map: React.FC = () => {
         addPolygon(map, NLTC, 'nltc', '#05B4DF');
         addPolygon(map, polygon110, 'polygon-110', '#05B4DF');
         addPolygon(map, polygon126, 'polygon-126', '#05B4DF');
-        addPolygon(map, polygon142, 'polygon-142', '#05B4DF');
+        // addPolygon(map, polygon142, 'polygon-142', '#05B4DF');
         addPolygon(map, polygon166, 'polygon-166', '#05B4DF');
         addPolygon(map, polygon182, 'polygon-182', '#05B4DF');
-        addPolygon(map, polygon198, 'polygon-198', '#05B4DF');
+        // addPolygon(map, polygon198, 'polygon-198', '#05B4DF');
         addPolygon(map, polygon214, 'polygon-214', '#05B4DF');
         addPolygon(map, polygon230, 'polygon-230', '#05B4DF');
         addPolygon(map, polygon22, 'polygon-22', '#05B4DF');
@@ -118,7 +122,7 @@ const Map: React.FC = () => {
         addPolygon(map, polygon282, 'polygon-282', '#05B4DF');
         addPolygon(map, polygon302, 'polygon-302', '#05B4DF');
         addPolygon(map, polygon318, 'polygon-318', '#05B4DF');
-        addPolygon(map, polygon334, 'polygon-334', '#05B4DF');
+        // addPolygon(map, polygon334, 'polygon-334', '#05B4DF');
         addPolygon(map, polygon350, 'polygon-350', '#05B4DF');
         addPolygon(map, polygon366, 'polygon-366', '#05B4DF');
         addPolygon(map, polygon38, 'polygon-38', '#05B4DF');
@@ -126,7 +130,9 @@ const Map: React.FC = () => {
         addPolygon(map, polygon398, 'polygon-398', '#05B4DF');
         addPolygon(map, polygon442, 'polygon-442', '#05B4DF');
         addPolygon(map, polygon411Coordinates, 'polygon-411', '#05B4DF');
-        addPolygon(map, RDOF2, 'rdof2', '#05B4DF');
+        addPolygon(map, indianTrail, 'indianTrail', '#05B4DF');
+        addPolygon(map, indianTrail2, 'indianTrail2', '#05B4DF');
+        // addPolygon(map, RDOF2, 'rdof2', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
@@ -192,6 +198,8 @@ const Map: React.FC = () => {
         const mattieHarrisPolygon = turf.polygon([MattieHarrisCoordinates]);
         const polygonNLTC = turf.polygon([NLTC]);
         const polygon411 = turf.polygon([polygon411Coordinates]);
+        const indianTrail = turf.polygon([indianTrail]);
+        const indianTrail2 = turf.polygon([indianTrail2]);
 
         const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
         const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
@@ -201,6 +209,8 @@ const Map: React.FC = () => {
         const isInsideMattieHarris = turf.booleanPointInPolygon(point, mattieHarrisPolygon);
         const isInsideNLTC = turf.booleanPointInPolygon(point, polygonNLTC);
         const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
+        const isInsideIndianTrail = turf.booleanPointInPolygon(point, indianTrail);
+        const isInsideIndianTrail2 = turf.booleanPointInPolygon(point, indianTrail2);
 
         if (
           !isInsideMeekRd &&
@@ -210,7 +220,9 @@ const Map: React.FC = () => {
           !isInsideRDOF &&
           !isInsideMattieHarris &&
           !isInsideNLTC &&
-          !isInsidePolygon411
+          !isInsidePolygon411 &&
+          !isInsideIndianTrail &&
+          !isInsideIndianTrail2
         ) {
           window.location.href = 'https://nlbc.com/check-service-area/';
           return;
@@ -226,6 +238,8 @@ const Map: React.FC = () => {
           isInsideMattieHarris,
           isInsideNLTC,
           isInsidePolygon411,
+          isInsideIndianTrail,
+          isInsideIndianTrail2,
           showMessage: true,
           hasSearched: true,
         });
