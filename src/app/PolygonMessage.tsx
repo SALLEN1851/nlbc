@@ -107,7 +107,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({
     message = `Contact us to confirm service availability at <strong>${fullAddress}</strong>.`;
   }
 
-  return  />;
+  return 
 };
 
 export default PolygonMessage;
