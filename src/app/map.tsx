@@ -204,57 +204,93 @@ const Map: React.FC = () => {
         let areaType = '';
 
         if (isInsideMeekRd) {
-          areaType = 'MeekRd';
-        } else if (isInsideWhiteWater) {
-          areaType = 'WhiteWater';
-        } else if (isInsideSunSetArea) {
-          areaType = 'SunSetArea';
-        } else if (isInsideLeadLine) {
-          areaType = 'LeadLine';
-        } else if (isInsideRDOF) {
-          areaType = 'RDOF';
-        } else if (isInsideMattieHarris) {
-          areaType = 'MattieHarris';
-        } else if (isInsideNLTC) {
-          areaType = 'NLTC';
-        } else if (isInsidePolygon411) {
-          areaType = 'Polygon411';
-        } else if (isInsideIndianTrail) {
-          areaType = 'IndianTrail';
-        } else if (isInsideIndianTrail2) {
-          areaType = 'IndianTrail2';
-        }
+  areaType = 'MeekRd';
+} else if (isInsideWhiteWater) {
+  areaType = 'WhiteWater';
+} else if (isInsideSunSetArea) {
+  areaType = 'SunSetArea';
+} else if (isInsideLeadLine) {
+  areaType = 'LeadLine';
+} else if (isInsideRDOF) {
+  areaType = 'RDOF';
+} else if (isInsideMattieHarris) {
+  areaType = 'MattieHarris';
+} else if (isInsideNLTC) {
+  areaType = 'NLTC';
+} else if (isInsidePolygon411) {
+  areaType = 'Polygon411';
+} else if (isInsideIndianTrail) {
+  areaType = 'IndianTrail';
+} else if (isInsideIndianTrail2) {
+  areaType = 'IndianTrail2';
+} else if (isInsidePolygon110) {
+  areaType = 'Polygon110';
+} else if (isInsidePolygon126) {
+  areaType = 'Polygon126';
+} else if (isInsidePolygon166) {
+  areaType = 'Polygon166';
+} else if (isInsidePolygon182) {
+  areaType = 'Polygon182';
+} else if (isInsidePolygon214) {
+  areaType = 'Polygon214';
+} else if (isInsidePolygon230) {
+  areaType = 'Polygon230';
+} else if (isInsidePolygon22) {
+  areaType = 'Polygon22';
+} else if (isInsidePolygon246) {
+  areaType = 'Polygon246';
+} else if (isInsidePolygon266) {
+  areaType = 'Polygon266';
+} else if (isInsidePolygon282) {
+  areaType = 'Polygon282';
+} else if (isInsidePolygon302) {
+  areaType = 'Polygon302';
+} else if (isInsidePolygon318) {
+  areaType = 'Polygon318';
+} else if (isInsidePolygon350) {
+  areaType = 'Polygon350';
+} else if (isInsidePolygon366) {
+  areaType = 'Polygon366';
+} else if (isInsidePolygon38) {
+  areaType = 'Polygon38';
+} else if (isInsidePolygon382) {
+  areaType = 'Polygon382';
+} else if (isInsidePolygon398) {
+  areaType = 'Polygon398';
+} else if (isInsidePolygon442) {
+  areaType = 'Polygon442';
+}
 
-          if (
-        !isInsideMeekRd &&
-        !isInsideWhiteWater &&
-        !isInsideSunSetArea &&
-        !isInsideLeadLine &&
-        !isInsideRDOF &&
-        !isInsideMattieHarris &&
-        !isInsideNLTC &&
-        !isInsidePolygon411 &&
-        !isInsideIndianTrail &&
-        !isInsideIndianTrail2 &&
-        !isInsidePolygon110 &&
-        !isInsidePolygon126 &&
-        !isInsidePolygon166 &&
-        !isInsidePolygon182 &&
-        !isInsidePolygon214 &&
-        !isInsidePolygon230 &&
-        !isInsidePolygon22 &&
-        !isInsidePolygon246 &&
-        !isInsidePolygon266 &&
-        !isInsidePolygon282 &&
-        !isInsidePolygon302 &&
-        !isInsidePolygon318 &&
-        !isInsidePolygon350 &&
-        !isInsidePolygon366 &&
-        !isInsidePolygon38 &&
-        !isInsidePolygon382 &&
-        !isInsidePolygon398 &&
-        !isInsidePolygon442
-      ) { 
+if (
+  !isInsideMeekRd &&
+  !isInsideWhiteWater &&
+  !isInsideSunSetArea &&
+  !isInsideLeadLine &&
+  !isInsideRDOF &&
+  !isInsideMattieHarris &&
+  !isInsideNLTC &&
+  !isInsidePolygon411 &&
+  !isInsideIndianTrail &&
+  !isInsideIndianTrail2 &&
+  !isInsidePolygon110 &&
+  !isInsidePolygon126 &&
+  !isInsidePolygon166 &&
+  !isInsidePolygon182 &&
+  !isInsidePolygon214 &&
+  !isInsidePolygon230 &&
+  !isInsidePolygon22 &&
+  !isInsidePolygon246 &&
+  !isInsidePolygon266 &&
+  !isInsidePolygon282 &&
+  !isInsidePolygon302 &&
+  !isInsidePolygon318 &&
+  !isInsidePolygon350 &&
+  !isInsidePolygon366 &&
+  !isInsidePolygon38 &&
+  !isInsidePolygon382 &&
+  !isInsidePolygon398 &&
+  !isInsidePolygon442
+) {
           window.location.href = 'https://nlbc.com/check-service-area/';
           return;
         }
