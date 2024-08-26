@@ -58,7 +58,7 @@ const Map: React.FC = () => {
     isInsidePolygon411: false,
     isInsideNLTC: false,
     isInsideIndianTrail: false,
-    isInsideindianTrail2: false,
+    isInsideIndianTrail2: false,
     showMessage: false,
     hasSearched: false,
   });
