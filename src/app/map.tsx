@@ -225,18 +225,36 @@ const Map: React.FC = () => {
           areaType = 'IndianTrail2';
         }
 
-        if (
-          !isInsideMeekRd &&
-          !isInsideWhiteWater &&
-          !isInsideSunSetArea &&
-          !isInsideLeadLine &&
-          !isInsideRDOF &&
-          !isInsideMattieHarris &&
-          !isInsideNLTC &&
-          !isInsidePolygon411 &&
-          !isInsideIndianTrail &&
-          !isInsideIndianTrail2
-        ) {
+          if (
+        !isInsideMeekRd &&
+        !isInsideWhiteWater &&
+        !isInsideSunSetArea &&
+        !isInsideLeadLine &&
+        !isInsideRDOF &&
+        !isInsideMattieHarris &&
+        !isInsideNLTC &&
+        !isInsidePolygon411 &&
+        !isInsideIndianTrail &&
+        !isInsideIndianTrail2 &&
+        !isInsidePolygon110 &&
+        !isInsidePolygon126 &&
+        !isInsidePolygon166 &&
+        !isInsidePolygon182 &&
+        !isInsidePolygon214 &&
+        !isInsidePolygon230 &&
+        !isInsidePolygon22 &&
+        !isInsidePolygon246 &&
+        !isInsidePolygon266 &&
+        !isInsidePolygon282 &&
+        !isInsidePolygon302 &&
+        !isInsidePolygon318 &&
+        !isInsidePolygon350 &&
+        !isInsidePolygon366 &&
+        !isInsidePolygon38 &&
+        !isInsidePolygon382 &&
+        !isInsidePolygon398 &&
+        !isInsidePolygon442
+      ) { 
           window.location.href = 'https://nlbc.com/check-service-area/';
           return;
         }
