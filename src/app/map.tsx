@@ -189,6 +189,26 @@ const Map: React.FC = () => {
         const polygon411 = turf.polygon([polygon411Coordinates]);
         const indianTrail = turf.polygon([indianTrailCoordinates]);
         const indianTrail2 = turf.polygon([indianTrail2Coordinates]);
+        const polygon110 = turf.polygon([polygon110]);
+        const polygon126 = turf.polygon([polygon126]);
+        const polygon166 = turf.polygon([polygon166]);
+        const polygon182 = turf.polygon([polygon182]);
+        const polygon214 = turf.polygon([polygon214]);
+        const polygon230 = turf.polygon([polygon230]);
+        const polygon22 = turf.polygon([polygon22]);
+        const polygon246 = turf.polygon([polygon246]);
+        const polygon266 = turf.polygon([polygon266]);
+        const polygon282 = turf.polygon([polygon282]);
+        const polygon302 = turf.polygon([polygon302]);
+        const polygon318 = turf.polygon([polygon318]);
+        const polygon350 = turf.polygon([polygon350]);
+        const polygon366 = turf.polygon([polygon366]);
+        const polygon38 = turf.polygon([polygon38]);
+        const polygon382 = turf.polygon([polygon382]);
+        const polygon398 = turf.polygon([polygon398]);
+        const polygon442 = turf.polygon([polygon442]);
+
+
 
         const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
         const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
@@ -200,6 +220,26 @@ const Map: React.FC = () => {
         const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
         const isInsideIndianTrail = turf.booleanPointInPolygon(point, indianTrail);
         const isInsideIndianTrail2 = turf.booleanPointInPolygon(point, indianTrail2);
+        const isInsidePolygon110 = turf.booleanPointInPolygon(point, polygon110);
+        const isInsidePolygon126 = turf.booleanPointInPolygon(point, polygon126);
+        const isInsidePolygon166 = turf.booleanPointInPolygon(point, polygon166);
+        const isInsidePolygon182 = turf.booleanPointInPolygon(point, polygon182);
+        const isInsidePolygon214 = turf.booleanPointInPolygon(point, polygon214);
+        const isInsidePolygon230 = turf.booleanPointInPolygon(point, polygon230);
+        const isInsidePolygon22 = turf.booleanPointInPolygon(point, polygon22);
+        const isInsidePolygon246 = turf.booleanPointInPolygon(point, polygon246);
+        const isInsidePolygon266 = turf.booleanPointInPolygon(point, polygon266);
+        const isInsidePolygon282 = turf.booleanPointInPolygon(point, polygon282);
+        const isInsidePolygon302 = turf.booleanPointInPolygon(point, polygon302);
+        const isInsidePolygon318 = turf.booleanPointInPolygon(point, polygon318);
+        const isInsidePolygon350 = turf.booleanPointInPolygon(point, polygon350);
+        const isInsidePolygon366 = turf.booleanPointInPolygon(point, polygon366);
+        const isInsidePolygon38 = turf.booleanPointInPolygon(point, polygon38);
+        const isInsidePolygon382 = turf.booleanPointInPolygon(point, polygon382);
+        const isInsidePolygon398 = turf.booleanPointInPolygon(point, polygon398);
+        const isInsidePolygon442 = turf.booleanPointInPolygon(point, polygon442);
+
+
 
         let areaType = '';
 
