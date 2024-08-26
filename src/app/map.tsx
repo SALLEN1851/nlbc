@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-import mapboxgl from 'mapbox-gl';
-import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
-import * as turf from '@turf/turf';
+import React, { useEffect, useRef, useState } from "react";
+import mapboxgl from "mapbox-gl";
+import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
+import * as turf from "@turf/turf";
 import {
   MeekRdCoordinates,
   WhiteWaterCoordinates,
@@ -34,38 +34,58 @@ import {
   polygon442Coordinates,
   polygon411Coordinates,
   indianTrailCoordinates,
-  indianTrail2Coordinates
-} from './coordinates';
-import PolygonMessage from './PolygonMessage';
+  indianTrail2Coordinates,
+} from "./coordinates";
+import PolygonMessage from "./PolygonMessage";
 
-mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || '';
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
 
 const Map: React.FC = () => {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   const [polygonProps, setPolygonProps] = useState({
-    fullAddress: '',
-    isInsideMeekRd: false,
-    isInsideWhiteWater: false,
-    isInsideSunSetArea: false,
-    isInsideLeadLine: false,
-    isInsideRDOF: false,
-    isInsideMattieHarris: false,
-    isInsidePolygon411: false,
-    isInsideNLTC: false,
-    isInsideIndianTrail: false,
-    isInsideIndianTrail2: false,
-    areaType: '',
-    hasSearched: false,
+    fullAddress: "",
+    areaType: "",
   });
+
+  const polygons = [
+    { name: "MeekRd", coordinates: MeekRdCoordinates, color: "#05B4DF" },
+    { name: "WhiteWater", coordinates: WhiteWaterCoordinates, color: "#05B4DF" },
+    { name: "SunSetArea", coordinates: SunSetAreaCoordinates, color: "#05B4DF" },
+    { name: "LeadLine", coordinates: LeadLineCoordinates, color: "#371F76" },
+    { name: "RDOF", coordinates: RDOFCoordinates, color: "#DEA731" },
+    { name: "MattieHarris", coordinates: MattieHarrisCoordinates, color: "#05B4DF" },
+    { name: "NLTC", coordinates: NLTC, color: "#05B4DF" },
+    { name: "Polygon110", coordinates: polygon110Coordinates, color: "#05B4DF" },
+    { name: "Polygon126", coordinates: polygon126Coordinates, color: "#05B4DF" },
+    { name: "Polygon166", coordinates: polygon166Coordinates, color: "#05B4DF" },
+    { name: "Polygon182", coordinates: polygon182Coordinates, color: "#05B4DF" },
+    { name: "Polygon214", coordinates: polygon214Coordinates, color: "#05B4DF" },
+    { name: "Polygon230", coordinates: polygon230Coordinates, color: "#05B4DF" },
+    { name: "Polygon22", coordinates: polygon22Coordinates, color: "#05B4DF" },
+    { name: "Polygon246", coordinates: polygon246Coordinates, color: "#05B4DF" },
+    { name: "Polygon266", coordinates: polygon266Coordinates, color: "#05B4DF" },
+    { name: "Polygon282", coordinates: polygon282Coordinates, color: "#05B4DF" },
+    { name: "Polygon302", coordinates: polygon302Coordinates, color: "#05B4DF" },
+    { name: "Polygon318", coordinates: polygon318Coordinates, color: "#05B4DF" },
+    { name: "Polygon350", coordinates: polygon350Coordinates, color: "#05B4DF" },
+    { name: "Polygon366", coordinates: polygon366Coordinates, color: "#05B4DF" },
+    { name: "Polygon38", coordinates: polygon38Coordinates, color: "#05B4DF" },
+    { name: "Polygon382", coordinates: polygon382Coordinates, color: "#05B4DF" },
+    { name: "Polygon398", coordinates: polygon398Coordinates, color: "#05B4DF" },
+    { name: "Polygon442", coordinates: polygon442Coordinates, color: "#05B4DF" },
+    { name: "Polygon411", coordinates: polygon411Coordinates, color: "#05B4DF" },
+    { name: "IndianTrail", coordinates: indianTrailCoordinates, color: "#05B4DF" },
+    { name: "IndianTrail2", coordinates: indianTrail2Coordinates, color: "#05B4DF" },
+  ];
 
   const addPolygon = (map: mapboxgl.Map, coordinates: number[][], id: string, fillColor: string) => {
     map.addSource(id, {
-      type: 'geojson',
+      type: "geojson",
       data: {
-        type: 'Feature',
+        type: "Feature",
         geometry: {
-          type: 'Polygon',
+          type: "Polygon",
           coordinates: [coordinates],
         },
         properties: {},
@@ -74,12 +94,12 @@ const Map: React.FC = () => {
 
     map.addLayer({
       id: id,
-      type: 'fill',
+      type: "fill",
       source: id,
       layout: {},
       paint: {
-        'fill-color': fillColor,
-        'fill-opacity': 0.3,
+        "fill-color": fillColor,
+        "fill-opacity": 0.3,
       },
     });
   };
@@ -88,40 +108,18 @@ const Map: React.FC = () => {
     if (mapContainerRef.current) {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
-        style: 'mapbox://styles/mapbox/light-v10',
+        style: "mapbox://styles/mapbox/light-v10",
         center: [-85.157944, 39.910799],
         zoom: 10,
       });
 
-      map.on('load', () => {
+      map.on("load", () => {
         mapRef.current = map;
 
-        // Adding polygons
-        addPolygon(map, MeekRdCoordinates, 'meek-rd', '#05B4DF');
-        addPolygon(map, LeadLineCoordinates, 'lead-line', '#371F76');
-        addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
-        addPolygon(map, NLTC, 'nltc', '#05B4DF');
-        addPolygon(map, polygon110Coordinates, 'polygon-110', '#05B4DF');
-        addPolygon(map, polygon126Coordinates, 'polygon-126', '#05B4DF');
-        addPolygon(map, polygon166Coordinates, 'polygon-166', '#05B4DF');
-        addPolygon(map, polygon182Coordinates, 'polygon-182', '#05B4DF');
-        addPolygon(map, polygon214Coordinates, 'polygon-214', '#05B4DF');
-        addPolygon(map, polygon230Coordinates, 'polygon-230', '#05B4DF');
-        addPolygon(map, polygon22Coordinates, 'polygon-22', '#05B4DF');
-        addPolygon(map, polygon246Coordinates, 'polygon-246', '#05B4DF');
-        addPolygon(map, polygon266Coordinates, 'polygon-266', '#05B4DF');
-        addPolygon(map, polygon282Coordinates, 'polygon-282', '#05B4DF');
-        addPolygon(map, polygon302Coordinates, 'polygon-302', '#05B4DF');
-        addPolygon(map, polygon318Coordinates, 'polygon-318', '#05B4DF');
-        addPolygon(map, polygon350Coordinates, 'polygon-350', '#05B4DF');
-        addPolygon(map, polygon366Coordinates, 'polygon-366', '#05B4DF');
-        addPolygon(map, polygon38Coordinates, 'polygon-38', '#05B4DF');
-        addPolygon(map, polygon382Coordinates, 'polygon-382', '#05B4DF');
-        addPolygon(map, polygon398Coordinates, 'polygon-398', '#05B4DF');
-        addPolygon(map, polygon442Coordinates, 'polygon-442', '#05B4DF');
-        addPolygon(map, polygon411Coordinates, 'polygon-411', '#05B4DF');
-        addPolygon(map, indianTrailCoordinates, 'indianTrail', '#05B4DF');
-        addPolygon(map, indianTrail2Coordinates, 'indianTrail2', '#05B4DF');
+        // Add all polygons
+        polygons.forEach((polygon) => {
+          addPolygon(map, polygon.coordinates, polygon.name, polygon.color);
+        });
       });
 
       const geocoder = new MapboxGeocoder({
@@ -129,16 +127,16 @@ const Map: React.FC = () => {
         mapboxgl: mapboxgl,
       });
 
-      document.getElementById('geocoder')?.appendChild(geocoder.onAdd(map));
+      document.getElementById("geocoder")?.appendChild(geocoder.onAdd(map));
 
       return () => map.remove();
     }
   }, []);
 
   useEffect(() => {
-    const submitBtn = document.getElementById('submit-btn');
+    const submitBtn = document.getElementById("submit-btn");
     if (submitBtn) {
-      submitBtn.addEventListener('click', submitAddress);
+      submitBtn.addEventListener("click", submitAddress);
     }
   }, []);
 
@@ -146,220 +144,68 @@ const Map: React.FC = () => {
     return str.replace(/\b\w/g, (match) => match.toUpperCase());
   };
 
-  const submitAddress = async () => {
-    const streetAddress = capitalizeFirstLetter((document.getElementById('streetAddress') as HTMLInputElement).value);
-    const city = capitalizeFirstLetter((document.getElementById('city') as HTMLInputElement).value);
-    const state = (document.getElementById('state') as HTMLInputElement).value.toUpperCase();
-    const zipcode = (document.getElementById('zipcode') as HTMLInputElement).value;
+const submitAddress = async () => {
+  const streetAddress = capitalizeFirstLetter((document.getElementById("streetAddress") as HTMLInputElement).value);
+  const city = capitalizeFirstLetter((document.getElementById("city") as HTMLInputElement).value);
+  const state = (document.getElementById("state") as HTMLInputElement).value.toUpperCase();
+  const zipcode = (document.getElementById("zipcode") as HTMLInputElement).value;
 
-    const fullAddress = `${streetAddress}, ${city}, ${state} ${zipcode}`;
-    console.log(fullAddress);
+  const fullAddress = `${streetAddress}, ${city}, ${state} ${zipcode}`;
+  console.log(fullAddress);
 
-    try {
-      const response = await fetch(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(fullAddress)}.json?access_token=${mapboxgl.accessToken}`
+  try {
+    const response = await fetch(
+      `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(fullAddress)}.json?access_token=${mapboxgl.accessToken}`
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to geocode address");
+    }
+
+    const data = await response.json();
+    const coordinates = data.features[0].geometry.coordinates;
+    console.log(coordinates);
+
+    const map = mapRef.current;
+    if (map) {
+      map.flyTo({
+        center: coordinates,
+        zoom: 15,
+        speed: 1.5,
+      });
+
+      new mapboxgl.Marker({ color: "#05B4DF" }).setLngLat(coordinates).addTo(map);
+
+      const point = turf.point(coordinates);
+
+      // Determine which polygon the point is inside
+      const foundPolygon = polygons.find((polygon) =>
+        turf.booleanPointInPolygon(point, turf.polygon([polygon.coordinates]))
       );
 
-      if (!response.ok) {
-        throw new Error('Failed to geocode address');
+      if (!foundPolygon) {
+        window.location.href = "https://nlbc.com/check-service-area/";
+        return;
       }
 
-      const data = await response.json();
-      const coordinates = data.features[0].geometry.coordinates;
-      console.log(coordinates);
+      console.log('Found polygon:', foundPolygon.name);
 
-      const map = mapRef.current;
-      if (map) {
-        map.flyTo({
-          center: coordinates,
-          zoom: 15,
-          speed: 1.5,
-        });
-
-        new mapboxgl.Marker({ color: '#05B4DF' }).setLngLat(coordinates).addTo(map);
-
-        const point = turf.point(coordinates);
-        const polygonMeekRd = turf.polygon([MeekRdCoordinates]);
-        const polygonWhiteWater = turf.polygon([WhiteWaterCoordinates]);
-        const polygonSunSetArea = turf.polygon([SunSetAreaCoordinates]);
-        const polygonLeadLine = turf.polygon([LeadLineCoordinates]);
-        const polygonRDOF = turf.polygon([RDOFCoordinates]);
-        const mattieHarrisPolygon = turf.polygon([MattieHarrisCoordinates]);
-        const polygonNLTC = turf.polygon([NLTC]);
-        const polygon411 = turf.polygon([polygon411Coordinates]);
-        const indianTrail = turf.polygon([indianTrailCoordinates]);
-        const indianTrail2 = turf.polygon([indianTrail2Coordinates]);
-        const polygon110 = turf.polygon([polygon110Coordinates]);
-        const polygon126 = turf.polygon([polygon126Coordinates]);
-        const polygon166 = turf.polygon([polygon166Coordinates]);
-        const polygon182 = turf.polygon([polygon182Coordinates]);
-        const polygon214 = turf.polygon([polygon214Coordinates]);
-        const polygon230 = turf.polygon([polygon230Coordinates]);
-        const polygon22 = turf.polygon([polygon22Coordinates]);
-        const polygon246 = turf.polygon([polygon246Coordinates]);
-        const polygon266 = turf.polygon([polygon266Coordinates]);
-        const polygon282 = turf.polygon([polygon282Coordinates]);
-        const polygon302 = turf.polygon([polygon302Coordinates]);
-        const polygon318 = turf.polygon([polygon318Coordinates]);
-        const polygon350 = turf.polygon([polygon350Coordinates]);
-        const polygon366 = turf.polygon([polygon366Coordinates]);
-        const polygon38 = turf.polygon([polygon38Coordinates]);
-        const polygon382 = turf.polygon([polygon382Coordinates]);
-        const polygon398 = turf.polygon([polygon398Coordinates]);
-        const polygon442 = turf.polygon([polygon442Coordinates]);
-
-
-
-        const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
-        const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
-        const isInsideSunSetArea = turf.booleanPointInPolygon(point, polygonSunSetArea);
-        const isInsideLeadLine = turf.booleanPointInPolygon(point, polygonLeadLine);
-        const isInsideRDOF = turf.booleanPointInPolygon(point, polygonRDOF);
-        const isInsideMattieHarris = turf.booleanPointInPolygon(point, mattieHarrisPolygon);
-        const isInsideNLTC = turf.booleanPointInPolygon(point, polygonNLTC);
-        const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
-        const isInsideIndianTrail = turf.booleanPointInPolygon(point, indianTrail);
-        const isInsideIndianTrail2 = turf.booleanPointInPolygon(point, indianTrail2);
-        const isInsidePolygon110 = turf.booleanPointInPolygon(point, polygon110);
-        const isInsidePolygon126 = turf.booleanPointInPolygon(point, polygon126);
-        const isInsidePolygon166 = turf.booleanPointInPolygon(point, polygon166);
-        const isInsidePolygon182 = turf.booleanPointInPolygon(point, polygon182);
-        const isInsidePolygon214 = turf.booleanPointInPolygon(point, polygon214);
-        const isInsidePolygon230 = turf.booleanPointInPolygon(point, polygon230);
-        const isInsidePolygon22 = turf.booleanPointInPolygon(point, polygon22);
-        const isInsidePolygon246 = turf.booleanPointInPolygon(point, polygon246);
-        const isInsidePolygon266 = turf.booleanPointInPolygon(point, polygon266);
-        const isInsidePolygon282 = turf.booleanPointInPolygon(point, polygon282);
-        const isInsidePolygon302 = turf.booleanPointInPolygon(point, polygon302);
-        const isInsidePolygon318 = turf.booleanPointInPolygon(point, polygon318);
-        const isInsidePolygon350 = turf.booleanPointInPolygon(point, polygon350);
-        const isInsidePolygon366 = turf.booleanPointInPolygon(point, polygon366);
-        const isInsidePolygon38 = turf.booleanPointInPolygon(point, polygon38);
-        const isInsidePolygon382 = turf.booleanPointInPolygon(point, polygon382);
-        const isInsidePolygon398 = turf.booleanPointInPolygon(point, polygon398);
-        const isInsidePolygon442 = turf.booleanPointInPolygon(point, polygon442);
-
-
-
-        let areaType = '';
-
-        if (isInsideMeekRd) {
-        areaType = 'MeekRd';
-      } else if (isInsideWhiteWater) {
-        areaType = 'WhiteWater';
-      } else if (isInsideSunSetArea) {
-        areaType = 'SunSetArea';
-      } else if (isInsideLeadLine) {
-        areaType = 'LeadLine';
-      } else if (isInsideRDOF) {
-        areaType = 'RDOF';
-      } else if (isInsideMattieHarris) {
-        areaType = 'MattieHarris';
-      } else if (isInsideNLTC) {
-        areaType = 'NLTC';
-      } else if (isInsidePolygon411) {
-        areaType = 'Polygon411';
-      } else if (isInsideIndianTrail) {
-        areaType = 'IndianTrail';
-      } else if (isInsideIndianTrail2) {
-        areaType = 'IndianTrail2';
-      } else if (isInsidePolygon110) {
-        areaType = 'Polygon110';
-      } else if (isInsidePolygon126) {
-        areaType = 'Polygon126';
-      } else if (isInsidePolygon166) {
-        areaType = 'Polygon166';
-      } else if (isInsidePolygon182) {
-        areaType = 'Polygon182';
-      } else if (isInsidePolygon214) {
-        areaType = 'Polygon214';
-      } else if (isInsidePolygon230) {
-        areaType = 'Polygon230';
-      } else if (isInsidePolygon22) {
-        areaType = 'Polygon22';
-      } else if (isInsidePolygon246) {
-        areaType = 'Polygon246';
-      } else if (isInsidePolygon266) {
-        areaType = 'Polygon266';
-      } else if (isInsidePolygon282) {
-        areaType = 'Polygon282';
-      } else if (isInsidePolygon302) {
-        areaType = 'Polygon302';
-      } else if (isInsidePolygon318) {
-        areaType = 'Polygon318';
-      } else if (isInsidePolygon350) {
-        areaType = 'Polygon350';
-      } else if (isInsidePolygon366) {
-        areaType = 'Polygon366';
-      } else if (isInsidePolygon38) {
-        areaType = 'Polygon38';
-      } else if (isInsidePolygon382) {
-        areaType = 'Polygon382';
-      } else if (isInsidePolygon398) {
-        areaType = 'Polygon398';
-      } else if (isInsidePolygon442) {
-        areaType = 'Polygon442';
-      }
-
-      if (
-        !isInsideMeekRd &&
-        !isInsideWhiteWater &&
-        !isInsideSunSetArea &&
-        !isInsideLeadLine &&
-        !isInsideRDOF &&
-        !isInsideMattieHarris &&
-        !isInsideNLTC &&
-        !isInsidePolygon411 &&
-        !isInsideIndianTrail &&
-        !isInsideIndianTrail2 &&
-        !isInsidePolygon110 &&
-        !isInsidePolygon126 &&
-        !isInsidePolygon166 &&
-        !isInsidePolygon182 &&
-        !isInsidePolygon214 &&
-        !isInsidePolygon230 &&
-        !isInsidePolygon22 &&
-        !isInsidePolygon246 &&
-        !isInsidePolygon266 &&
-        !isInsidePolygon282 &&
-        !isInsidePolygon302 &&
-        !isInsidePolygon318 &&
-        !isInsidePolygon350 &&
-        !isInsidePolygon366 &&
-        !isInsidePolygon38 &&
-        !isInsidePolygon382 &&
-        !isInsidePolygon398 &&
-        !isInsidePolygon442
-      ) {
-          window.location.href = 'https://nlbc.com/check-service-area/';
-          return;
-        }
-
-        setPolygonProps({
-          fullAddress,
-          isInsideMeekRd,
-          isInsideWhiteWater,
-          isInsideSunSetArea,
-          isInsideLeadLine,
-          isInsideRDOF,
-          isInsideMattieHarris,
-          isInsideNLTC,
-          isInsidePolygon411,
-          isInsideIndianTrail,
-          isInsideIndianTrail2,
-          areaType,
-          hasSearched: true,
-        });
-      }
-    } catch (error) {
-      console.error('Error:', error);
+      // Update state with the found polygon's name
+      setPolygonProps({
+        fullAddress,
+        areaType: foundPolygon.name,
+      });
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+  }
+};
+
 
   return (
     <>
       <div ref={mapContainerRef} className="h-[60vh] w-full" id="map" />
-      <PolygonMessage {...polygonProps} />
+      {/* <PolygonMessage {...polygonProps} /> */}
     </>
   );
 };

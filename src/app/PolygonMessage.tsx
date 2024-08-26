@@ -3,11 +3,10 @@ import React from 'react';
 interface PolygonMessageProps {
   fullAddress: string;
   areaType: string | null;
-  hasSearched: boolean;
 }
 
-const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, hasSearched }) => {
-  if (!hasSearched || !areaType) {
+const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType }) => {
+  if (!areaType) {
     return null;
   }
 
