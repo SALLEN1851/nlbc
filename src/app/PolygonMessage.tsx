@@ -6,8 +6,12 @@ interface PolygonMessageProps {
   hasSearched: boolean;
 }
 
-const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, hasSearched }) => {
-  if (!hasSearched || !areaType) {
+const PolygonMessage: React.FC<PolygonMessageProps> = ({
+  fullAddress,
+  areaType,
+  hasSearched,
+}) => {
+  if (!hasSearched) {
     return null;
   }
 
