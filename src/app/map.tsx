@@ -189,24 +189,24 @@ const Map: React.FC = () => {
         const polygon411 = turf.polygon([polygon411Coordinates]);
         const indianTrail = turf.polygon([indianTrailCoordinates]);
         const indianTrail2 = turf.polygon([indianTrail2Coordinates]);
-        const polygon110 = turf.polygon([polygon110]);
-        const polygon126 = turf.polygon([polygon126]);
-        const polygon166 = turf.polygon([polygon166]);
-        const polygon182 = turf.polygon([polygon182]);
-        const polygon214 = turf.polygon([polygon214]);
-        const polygon230 = turf.polygon([polygon230]);
-        const polygon22 = turf.polygon([polygon22]);
-        const polygon246 = turf.polygon([polygon246]);
-        const polygon266 = turf.polygon([polygon266]);
-        const polygon282 = turf.polygon([polygon282]);
-        const polygon302 = turf.polygon([polygon302]);
-        const polygon318 = turf.polygon([polygon318]);
-        const polygon350 = turf.polygon([polygon350]);
-        const polygon366 = turf.polygon([polygon366]);
-        const polygon38 = turf.polygon([polygon38]);
-        const polygon382 = turf.polygon([polygon382]);
-        const polygon398 = turf.polygon([polygon398]);
-        const polygon442 = turf.polygon([polygon442]);
+        const polygon110 = turf.polygon([polygon110Coordinates]);
+        const polygon126 = turf.polygon([polygon126Coordinates]);
+        const polygon166 = turf.polygon([polygon166Coordinates]);
+        const polygon182 = turf.polygon([polygon182Coordinates]);
+        const polygon214 = turf.polygon([polygon214Coordinates]);
+        const polygon230 = turf.polygon([polygon230Coordinates]);
+        const polygon22 = turf.polygon([polygon22Coordinates]);
+        const polygon246 = turf.polygon([polygon246Coordinates]);
+        const polygon266 = turf.polygon([polygon266Coordinates]);
+        const polygon282 = turf.polygon([polygon282Coordinates]);
+        const polygon302 = turf.polygon([polygon302Coordinates]);
+        const polygon318 = turf.polygon([polygon318Coordinates]);
+        const polygon350 = turf.polygon([polygon350Coordinates]);
+        const polygon366 = turf.polygon([polygon366Coordinates]);
+        const polygon38 = turf.polygon([polygon38Coordinates]);
+        const polygon382 = turf.polygon([polygon382Coordinates]);
+        const polygon398 = turf.polygon([polygon398Coordinates]);
+        const polygon442 = turf.polygon([polygon442Coordinates]);
 
 
 
@@ -244,93 +244,93 @@ const Map: React.FC = () => {
         let areaType = '';
 
         if (isInsideMeekRd) {
-  areaType = 'MeekRd';
-} else if (isInsideWhiteWater) {
-  areaType = 'WhiteWater';
-} else if (isInsideSunSetArea) {
-  areaType = 'SunSetArea';
-} else if (isInsideLeadLine) {
-  areaType = 'LeadLine';
-} else if (isInsideRDOF) {
-  areaType = 'RDOF';
-} else if (isInsideMattieHarris) {
-  areaType = 'MattieHarris';
-} else if (isInsideNLTC) {
-  areaType = 'NLTC';
-} else if (isInsidePolygon411) {
-  areaType = 'Polygon411';
-} else if (isInsideIndianTrail) {
-  areaType = 'IndianTrail';
-} else if (isInsideIndianTrail2) {
-  areaType = 'IndianTrail2';
-} else if (isInsidePolygon110) {
-  areaType = 'Polygon110';
-} else if (isInsidePolygon126) {
-  areaType = 'Polygon126';
-} else if (isInsidePolygon166) {
-  areaType = 'Polygon166';
-} else if (isInsidePolygon182) {
-  areaType = 'Polygon182';
-} else if (isInsidePolygon214) {
-  areaType = 'Polygon214';
-} else if (isInsidePolygon230) {
-  areaType = 'Polygon230';
-} else if (isInsidePolygon22) {
-  areaType = 'Polygon22';
-} else if (isInsidePolygon246) {
-  areaType = 'Polygon246';
-} else if (isInsidePolygon266) {
-  areaType = 'Polygon266';
-} else if (isInsidePolygon282) {
-  areaType = 'Polygon282';
-} else if (isInsidePolygon302) {
-  areaType = 'Polygon302';
-} else if (isInsidePolygon318) {
-  areaType = 'Polygon318';
-} else if (isInsidePolygon350) {
-  areaType = 'Polygon350';
-} else if (isInsidePolygon366) {
-  areaType = 'Polygon366';
-} else if (isInsidePolygon38) {
-  areaType = 'Polygon38';
-} else if (isInsidePolygon382) {
-  areaType = 'Polygon382';
-} else if (isInsidePolygon398) {
-  areaType = 'Polygon398';
-} else if (isInsidePolygon442) {
-  areaType = 'Polygon442';
-}
+        areaType = 'MeekRd';
+      } else if (isInsideWhiteWater) {
+        areaType = 'WhiteWater';
+      } else if (isInsideSunSetArea) {
+        areaType = 'SunSetArea';
+      } else if (isInsideLeadLine) {
+        areaType = 'LeadLine';
+      } else if (isInsideRDOF) {
+        areaType = 'RDOF';
+      } else if (isInsideMattieHarris) {
+        areaType = 'MattieHarris';
+      } else if (isInsideNLTC) {
+        areaType = 'NLTC';
+      } else if (isInsidePolygon411) {
+        areaType = 'Polygon411';
+      } else if (isInsideIndianTrail) {
+        areaType = 'IndianTrail';
+      } else if (isInsideIndianTrail2) {
+        areaType = 'IndianTrail2';
+      } else if (isInsidePolygon110) {
+        areaType = 'Polygon110';
+      } else if (isInsidePolygon126) {
+        areaType = 'Polygon126';
+      } else if (isInsidePolygon166) {
+        areaType = 'Polygon166';
+      } else if (isInsidePolygon182) {
+        areaType = 'Polygon182';
+      } else if (isInsidePolygon214) {
+        areaType = 'Polygon214';
+      } else if (isInsidePolygon230) {
+        areaType = 'Polygon230';
+      } else if (isInsidePolygon22) {
+        areaType = 'Polygon22';
+      } else if (isInsidePolygon246) {
+        areaType = 'Polygon246';
+      } else if (isInsidePolygon266) {
+        areaType = 'Polygon266';
+      } else if (isInsidePolygon282) {
+        areaType = 'Polygon282';
+      } else if (isInsidePolygon302) {
+        areaType = 'Polygon302';
+      } else if (isInsidePolygon318) {
+        areaType = 'Polygon318';
+      } else if (isInsidePolygon350) {
+        areaType = 'Polygon350';
+      } else if (isInsidePolygon366) {
+        areaType = 'Polygon366';
+      } else if (isInsidePolygon38) {
+        areaType = 'Polygon38';
+      } else if (isInsidePolygon382) {
+        areaType = 'Polygon382';
+      } else if (isInsidePolygon398) {
+        areaType = 'Polygon398';
+      } else if (isInsidePolygon442) {
+        areaType = 'Polygon442';
+      }
 
-if (
-  !isInsideMeekRd &&
-  !isInsideWhiteWater &&
-  !isInsideSunSetArea &&
-  !isInsideLeadLine &&
-  !isInsideRDOF &&
-  !isInsideMattieHarris &&
-  !isInsideNLTC &&
-  !isInsidePolygon411 &&
-  !isInsideIndianTrail &&
-  !isInsideIndianTrail2 &&
-  !isInsidePolygon110 &&
-  !isInsidePolygon126 &&
-  !isInsidePolygon166 &&
-  !isInsidePolygon182 &&
-  !isInsidePolygon214 &&
-  !isInsidePolygon230 &&
-  !isInsidePolygon22 &&
-  !isInsidePolygon246 &&
-  !isInsidePolygon266 &&
-  !isInsidePolygon282 &&
-  !isInsidePolygon302 &&
-  !isInsidePolygon318 &&
-  !isInsidePolygon350 &&
-  !isInsidePolygon366 &&
-  !isInsidePolygon38 &&
-  !isInsidePolygon382 &&
-  !isInsidePolygon398 &&
-  !isInsidePolygon442
-) {
+      if (
+        !isInsideMeekRd &&
+        !isInsideWhiteWater &&
+        !isInsideSunSetArea &&
+        !isInsideLeadLine &&
+        !isInsideRDOF &&
+        !isInsideMattieHarris &&
+        !isInsideNLTC &&
+        !isInsidePolygon411 &&
+        !isInsideIndianTrail &&
+        !isInsideIndianTrail2 &&
+        !isInsidePolygon110 &&
+        !isInsidePolygon126 &&
+        !isInsidePolygon166 &&
+        !isInsidePolygon182 &&
+        !isInsidePolygon214 &&
+        !isInsidePolygon230 &&
+        !isInsidePolygon22 &&
+        !isInsidePolygon246 &&
+        !isInsidePolygon266 &&
+        !isInsidePolygon282 &&
+        !isInsidePolygon302 &&
+        !isInsidePolygon318 &&
+        !isInsidePolygon350 &&
+        !isInsidePolygon366 &&
+        !isInsidePolygon38 &&
+        !isInsidePolygon382 &&
+        !isInsidePolygon398 &&
+        !isInsidePolygon442
+      ) {
           window.location.href = 'https://nlbc.com/check-service-area/';
           return;
         }
