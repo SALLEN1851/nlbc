@@ -16,8 +16,10 @@ import {
   NLTC,
   polygon110,
   polygon126,
+  polygon142,
   polygon166,
   polygon182,
+  polygon198,
   polygon214,
   polygon230,
   polygon22,
@@ -26,12 +28,14 @@ import {
   polygon282,
   polygon302,
   polygon318,
+  polygon334,
   polygon350,
   polygon366,
   polygon38,
   polygon382,
   polygon398,
   polygon442,
+  RDOF2,
   polygon411Coordinates,
   indianTrailCoordinates,
   indianTrail2Coordinates
@@ -55,7 +59,7 @@ const Map: React.FC = () => {
     isInsideNLTC: false,
     isInsideIndianTrail: false,
     isInsideIndianTrail2: false,
-    areaType: null,
+    showMessage: false,
     hasSearched: false,
   });
 
@@ -97,14 +101,19 @@ const Map: React.FC = () => {
         mapRef.current = map;
 
         // Adding polygons
+        // addPolygon(map, SunSetAreaCoordinates, 'sunset-area', '#05B4DF');
+        // addPolygon(map, WhiteWaterCoordinates, 'white-water', '#05B4DF');
         addPolygon(map, MeekRdCoordinates, 'meek-rd', '#05B4DF');
         addPolygon(map, LeadLineCoordinates, 'lead-line', '#371F76');
         addPolygon(map, RDOFCoordinates, 'rdof', '#DEA731');
+        // addPolygon(map, MattieHarrisCoordinates, 'mattie-harris', '#05B4DF');
         addPolygon(map, NLTC, 'nltc', '#05B4DF');
         addPolygon(map, polygon110, 'polygon-110', '#05B4DF');
         addPolygon(map, polygon126, 'polygon-126', '#05B4DF');
+        // addPolygon(map, polygon142, 'polygon-142', '#05B4DF');
         addPolygon(map, polygon166, 'polygon-166', '#05B4DF');
         addPolygon(map, polygon182, 'polygon-182', '#05B4DF');
+        // addPolygon(map, polygon198, 'polygon-198', '#05B4DF');
         addPolygon(map, polygon214, 'polygon-214', '#05B4DF');
         addPolygon(map, polygon230, 'polygon-230', '#05B4DF');
         addPolygon(map, polygon22, 'polygon-22', '#05B4DF');
@@ -113,6 +122,7 @@ const Map: React.FC = () => {
         addPolygon(map, polygon282, 'polygon-282', '#05B4DF');
         addPolygon(map, polygon302, 'polygon-302', '#05B4DF');
         addPolygon(map, polygon318, 'polygon-318', '#05B4DF');
+        // addPolygon(map, polygon334, 'polygon-334', '#05B4DF');
         addPolygon(map, polygon350, 'polygon-350', '#05B4DF');
         addPolygon(map, polygon366, 'polygon-366', '#05B4DF');
         addPolygon(map, polygon38, 'polygon-38', '#05B4DF');
@@ -122,6 +132,7 @@ const Map: React.FC = () => {
         addPolygon(map, polygon411Coordinates, 'polygon-411', '#05B4DF');
         addPolygon(map, indianTrailCoordinates, 'indianTrail', '#05B4DF');
         addPolygon(map, indianTrail2Coordinates, 'indianTrail2', '#05B4DF');
+        // addPolygon(map, RDOF2, 'rdof2', '#05B4DF');
       });
 
       const geocoder = new MapboxGeocoder({
@@ -190,29 +201,16 @@ const Map: React.FC = () => {
         const indianTrail = turf.polygon([indianTrailCoordinates]);
         const indianTrail2 = turf.polygon([indianTrail2Coordinates]);
 
-        let areaType = null;
-
-        if (turf.booleanPointInPolygon(point, polygonMeekRd)) {
-          areaType = 'MeekRd';
-        } else if (turf.booleanPointInPolygon(point, polygonWhiteWater)) {
-          areaType = 'WhiteWater';
-        } else if (turf.booleanPointInPolygon(point, polygonSunSetArea)) {
-          areaType = 'SunSetArea';
-        } else if (turf.booleanPointInPolygon(point, polygonLeadLine)) {
-          areaType = 'LeadLine';
-        } else if (turf.booleanPointInPolygon(point, polygonRDOF)) {
-          areaType = 'RDOF';
-        } else if (turf.booleanPointInPolygon(point, mattieHarrisPolygon)) {
-          areaType = 'MattieHarris';
-        } else if (turf.booleanPointInPolygon(point, polygonNLTC)) {
-          areaType = 'NLTC';
-        } else if (turf.booleanPointInPolygon(point, polygon411)) {
-          areaType = 'Polygon411';
-        } else if (turf.booleanPointInPolygon(point, indianTrail)) {
-          areaType = 'IndianTrail';
-        } else if (turf.booleanPointInPolygon(point, indianTrail2)) {
-          areaType = 'IndianTrail2';
-        }
+        const isInsideMeekRd = turf.booleanPointInPolygon(point, polygonMeekRd);
+        const isInsideWhiteWater = turf.booleanPointInPolygon(point, polygonWhiteWater);
+        const isInsideSunSetArea = turf.booleanPointInPolygon(point, polygonSunSetArea);
+        const isInsideLeadLine = turf.booleanPointInPolygon(point, polygonLeadLine);
+        const isInsideRDOF = turf.booleanPointInPolygon(point, polygonRDOF);
+        const isInsideMattieHarris = turf.booleanPointInPolygon(point, mattieHarrisPolygon);
+        const isInsideNLTC = turf.booleanPointInPolygon(point, polygonNLTC);
+        const isInsidePolygon411 = turf.booleanPointInPolygon(point, polygon411); 
+        const isInsideIndianTrail = turf.booleanPointInPolygon(point, indianTrail);
+        const isInsideIndianTrail2 = turf.booleanPointInPolygon(point, indianTrail2);
 
         if (
           !isInsideMeekRd &&
@@ -242,7 +240,7 @@ const Map: React.FC = () => {
           isInsidePolygon411,
           isInsideIndianTrail,
           isInsideIndianTrail2,
-          areaType, // Set the area type here
+          showMessage: true,
           hasSearched: true,
         });
       }
