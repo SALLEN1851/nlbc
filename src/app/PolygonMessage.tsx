@@ -2,7 +2,7 @@ import React from 'react';
 
 interface PolygonMessageProps {
   fullAddress: string;
-  areaType: string | null;
+  areaType: string || null;
   hasSearched: boolean;
 }
 
