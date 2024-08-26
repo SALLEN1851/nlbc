@@ -201,7 +201,7 @@ const Map: React.FC = () => {
         const isInsideIndianTrail = turf.booleanPointInPolygon(point, indianTrail);
         const isInsideIndianTrail2 = turf.booleanPointInPolygon(point, indianTrail2);
 
-        let areaType = string = '';
+        let areaType = '';
 
         if (isInsideMeekRd) {
           areaType = 'MeekRd';
