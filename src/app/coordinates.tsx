@@ -21310,5 +21310,6 @@ export const RDOF5Coordinates = {
         [-85.10325732639431, 40.11003998778813]
       ]
     ]
-  }
+  },
+   properties: {}
 };

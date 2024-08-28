@@ -132,7 +132,7 @@ map.on('load', function () {
     'layout': {},
     'paint': {
       'fill-color': "#DEA731",
-      'fill-opacity': 0.8
+      'fill-opacity': 0.3,
     }
   });
 });
