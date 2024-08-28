@@ -34,6 +34,8 @@ import {
   polygon442Coordinates,
   indianTrailCoordinates,
   indianTrail2Coordinates,
+  RDOF3Coordinates,
+  RDOF4Coordinates,
 } from './coordinates';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
@@ -146,6 +148,8 @@ const SearchAddressForm: React.FC = () => {
   { type: 'qualified', polygon: turf.polygon([polygon442Coordinates]) },
   { type: 'qualified', polygon: turf.polygon([indianTrailCoordinates]) },
   { type: 'qualified', polygon: turf.polygon([indianTrail2Coordinates]) },
+  { type: 'qualified', polygon: turf.polygon([RDOF3Coordinates]) },
+  { type: 'rdof', polygon: turf.polygon([RDOF4Coordinates]) },
 ];
 
 

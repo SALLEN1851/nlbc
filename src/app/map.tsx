@@ -8,11 +8,11 @@ import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import * as turf from "@turf/turf";
 import {
   MeekRdCoordinates,
-  WhiteWaterCoordinates,
-  SunSetAreaCoordinates,
+  // WhiteWaterCoordinates,
+  // SunSetAreaCoordinates,
   LeadLineCoordinates,
   RDOFCoordinates,
-  MattieHarrisCoordinates,
+  // MattieHarrisCoordinates,
   NLTC,
   polygon110Coordinates,
   polygon126Coordinates,
@@ -35,6 +35,9 @@ import {
   polygon411Coordinates,
   indianTrailCoordinates,
   indianTrail2Coordinates,
+  RDOF3Coordinates,
+  RDOF4Coordinates,
+  RDOF5Coordinates,
 } from "./coordinates";
 import PolygonMessage from "./PolygonMessage";
 
@@ -50,11 +53,11 @@ const Map: React.FC = () => {
 
   const polygons = [
     { name: "MeekRd", coordinates: MeekRdCoordinates, color: "#05B4DF" },
-    { name: "WhiteWater", coordinates: WhiteWaterCoordinates, color: "#05B4DF" },
-    { name: "SunSetArea", coordinates: SunSetAreaCoordinates, color: "#05B4DF" },
+    // { name: "WhiteWater", coordinates: WhiteWaterCoordinates, color: "#05B4DF" },
+    // { name: "SunSetArea", coordinates: SunSetAreaCoordinates, color: "#05B4DF" },
     { name: "LeadLine", coordinates: LeadLineCoordinates, color: "#371F76" },
-    { name: "RDOF", coordinates: RDOFCoordinates, color: "#DEA731" },
-    { name: "MattieHarris", coordinates: MattieHarrisCoordinates, color: "#05B4DF" },
+    // { name: "RDOF", coordinates: RDOFCoordinates, color: "#DEA731" },
+    // { name: "MattieHarris", coordinates: MattieHarrisCoordinates, color: "#05B4DF" },
     { name: "NLTC", coordinates: NLTC, color: "#05B4DF" },
     { name: "Polygon110", coordinates: polygon110Coordinates, color: "#05B4DF" },
     { name: "Polygon126", coordinates: polygon126Coordinates, color: "#05B4DF" },
@@ -77,6 +80,9 @@ const Map: React.FC = () => {
     { name: "Polygon411", coordinates: polygon411Coordinates, color: "#05B4DF" },
     { name: "IndianTrail", coordinates: indianTrailCoordinates, color: "#05B4DF" },
     { name: "IndianTrail2", coordinates: indianTrail2Coordinates, color: "#05B4DF" },
+    { name: "RDOF3", coordinates: RDOF3Coordinates, color: "#05B4DF" },
+    // { name: "RDOF4", coordinates: RDOF4Coordinates, color: "#FF0000" },
+    { name: "RDOF5", coordinates: RDOF5Coordinates, color: "#DEA731" },
   ];
 
   const addPolygon = (map: mapboxgl.Map, coordinates: number[][], id: string, fillColor: string) => {
@@ -112,6 +118,25 @@ const Map: React.FC = () => {
         center: [-85.157944, 39.910799],
         zoom: 10,
       });
+
+map.on('load', function () {
+  map.addSource('RDOF5Coordinates', {
+    'type': 'geojson',
+    'data': RDOF5Coordinates
+  });
+
+  map.addLayer({
+    'id': 'RDOF5',
+    'type': 'fill',
+    'source': 'RDOF5Coordinates',
+    'layout': {},
+    'paint': {
+      'fill-color': "#DEA731",
+      'fill-opacity': 0.8
+    }
+  });
+});
+
 
       map.on("load", () => {
         mapRef.current = map;
