@@ -6,13 +6,10 @@ import MapboxGeocoder from "@mapbox/mapbox-gl-geocoder";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css";
 import * as turf from "@turf/turf";
+import PolygonMessage from "./PolygonMessage";
 import {
   MeekRdCoordinates,
-  // WhiteWaterCoordinates,
-  // SunSetAreaCoordinates,
   LeadLineCoordinates,
-  RDOFCoordinates,
-  // MattieHarrisCoordinates,
   NLTC,
   polygon110Coordinates,
   polygon126Coordinates,
@@ -36,10 +33,9 @@ import {
   indianTrailCoordinates,
   indianTrail2Coordinates,
   RDOF3Coordinates,
-  RDOF4Coordinates,
   RDOF5Coordinates,
 } from "./coordinates";
-import PolygonMessage from "./PolygonMessage";
+
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
 
@@ -215,6 +211,8 @@ const submitAddress = async () => {
 
       console.log('Found polygon:', foundPolygon.name);
 
+
+      
       // Update state with the found polygon's name
       setPolygonProps({
         fullAddress,
