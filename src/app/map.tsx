@@ -107,7 +107,7 @@ const Map: React.FC = () => {
     });
   };
 
-  useEffect(() => {
+ useEffect(() => {
   if (mapContainerRef.current) {
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
@@ -116,52 +116,44 @@ const Map: React.FC = () => {
       zoom: 10,
     });
 
-    // Use a single "load" event listener
-    map.on("load", () => {
-      // Set map reference
-      mapRef.current = map;
-
-      // Add the RDOF5 polygon source and layer
-      map.addSource("RDOF5Coordinates", {
-        type: "geojson",
-        data: RDOF5Coordinates,
+    map.on('load', function () {
+      map.addSource('RDOF5Coordinates', {
+        'type': 'geojson',
+        'data': RDOF5Coordinates,
       });
 
       map.addLayer({
-        id: "RDOF5",
-        type: "fill",
-        source: "RDOF5Coordinates",
-        layout: {},
-        paint: {
-          "fill-color": "#DEA731",
-          "fill-opacity": 0.3,
+        'id': 'RDOF5',
+        'type': 'fill',
+        'source': 'RDOF5Coordinates',
+        'layout': {},
+        'paint': {
+          'fill-color': "#DEA731",
+          'fill-opacity': 0.3,
         },
       });
+    });
 
-     map.on("load", () => {
+    map.on("load", () => {
       mapRef.current = map;
 
       // Add all polygons using your custom function
       polygons.forEach((polygon) => {
-        // Ensure coordinates are properly extracted
         const coordinates = Array.isArray(polygon.coordinates)
           ? polygon.coordinates
-          : polygon.coordinates.geometry as GeoJSON.Polygon).coordinates[0];
+          : (polygon.coordinates.geometry as GeoJSON.Polygon).coordinates[0]; // Corrected parentheses placement
 
         addPolygon(map, coordinates, polygon.name, polygon.color);
       });
     });
 
-      // Initialize the geocoder and attach it to the map
-      const geocoder = new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl,
-      });
-
-      document.getElementById("geocoder")?.appendChild(geocoder.onAdd(map));
+    const geocoder = new MapboxGeocoder({
+      accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl,
     });
 
-    // Cleanup on component unmount
+    document.getElementById("geocoder")?.appendChild(geocoder.onAdd(map));
+
     return () => map.remove();
   }
 }, []);
