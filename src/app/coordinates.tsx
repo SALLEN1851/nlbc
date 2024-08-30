@@ -21189,7 +21189,7 @@ export const RDOF4Coordinates = [
   [-85.21508099768029, 40.13493169934583, 0.0],
 ];
 
-export const RDOF5Coordinates = {
+export const RDOF5Coordinates: GeoJSON.Feature = {
   type: "Feature",
   geometry: {
     type: "Polygon",
