@@ -33,7 +33,8 @@ import {
   indianTrailCoordinates,
   indianTrail2Coordinates,
   RDOF3Coordinates,
-  // RDOF5Coordinates,
+  RDOF5Coordinates,
+  // RDOF4Coordinates,
 } from "./coordinates";
 
 
@@ -78,7 +79,7 @@ const Map: React.FC = () => {
     { name: "IndianTrail2", coordinates: indianTrail2Coordinates, color: "#05B4DF" },
     { name: "RDOF3", coordinates: RDOF3Coordinates, color: "#05B4DF" },
     // { name: "RDOF4", coordinates: RDOF4Coordinates, color: "#FF0000" },
-    // { name: "RDOF5", coordinates: RDOF5Coordinates, color: "#DEA731" },
+    { name: "RDOF5", coordinates: RDOF5Coordinates, color: "#DEA731" },
   ];
 
   const addPolygon = (map: mapboxgl.Map, coordinates: number[][], id: string, fillColor: string) => {
@@ -115,23 +116,23 @@ const Map: React.FC = () => {
         zoom: 10,
       });
 
-// map.on('load', function () {
-//   map.addSource('RDOF5Coordinates', {
-//     'type': 'geojson',
-//     'data': RDOF5Coordinates
-//   });
+map.on('load', function () {
+  map.addSource('RDOF5Coordinates', {
+    'type': 'geojson',
+    'data': RDOF5Coordinates
+  });
 
-//   map.addLayer({
-//     'id': 'RDOF5',
-//     'type': 'fill',
-//     'source': 'RDOF5Coordinates',
-//     'layout': {},
-//     'paint': {
-//       'fill-color': "#DEA731",
-//       'fill-opacity': 0.3,
-//     }
-//   });
-// });
+  map.addLayer({
+    'id': 'RDOF5',
+    'type': 'fill',
+    'source': 'RDOF5Coordinates',
+    'layout': {},
+    'paint': {
+      'fill-color': "#DEA731",
+      'fill-opacity': 0.3,
+    }
+  });
+});
 
 
       map.on("load", () => {

@@ -121,7 +121,7 @@ const SearchAddressForm: React.FC = () => {
   // { type: 'qualified', polygon: turf.polygon([WhiteWaterCoordinates]) },
   // { type: 'qualified', polygon: turf.polygon([SunSetAreaCoordinates]) },
   { type: 'leadLine', polygon: turf.polygon([LeadLineCoordinates]) },
-  // { type: 'rdof', polygon: turf.polygon([RDOFCoordinates]) },
+  { type: 'rdof', polygon: turf.polygon([RDOFCoordinates]) },
   // { type: 'qualified', polygon: turf.polygon([MattieHarrisCoordinates]) },
   { type: 'nltc', polygon: turf.polygon([NLTC]) },
   { type: 'qualified', polygon: turf.polygon([polygon411Coordinates]) },
