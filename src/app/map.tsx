@@ -138,15 +138,19 @@ const Map: React.FC = () => {
         },
       });
 
-      // Assuming your polygon objects might be GeoJSON Features:
-polygons.forEach((polygon) => {
-  // If `polygon.coordinates` is a GeoJSON Feature, extract the coordinates
-  const coordinates = Array.isArray(polygon.coordinates)
-    ? polygon.coordinates
-    : (polygon.coordinates.geometry.coordinates[0], // Assuming simple polygons
-  
-  addPolygon(map, coordinates, polygon.name, polygon.color);
-});
+     map.on("load", () => {
+      mapRef.current = map;
+
+      // Add all polygons using your custom function
+      polygons.forEach((polygon) => {
+        // Ensure coordinates are properly extracted
+        const coordinates = Array.isArray(polygon.coordinates)
+          ? polygon.coordinates
+          : polygon.coordinates.geometry.coordinates[0];
+
+        addPolygon(map, coordinates, polygon.name, polygon.color);
+      });
+    });
 
       // Initialize the geocoder and attach it to the map
       const geocoder = new MapboxGeocoder({
