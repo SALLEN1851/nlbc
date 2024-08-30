@@ -6,13 +6,10 @@ import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
 import PolygonMessage from './PolygonMessage';
 import {
-  WhiteWaterCoordinates,
   MeekRdCoordinates,
   LeadLineCoordinates,
   RDOFCoordinates,
-  MattieHarrisCoordinates,
   NLTC,
-  SunSetAreaCoordinates,
   polygon411Coordinates,
   polygon110Coordinates,
   polygon126Coordinates,
@@ -150,6 +147,7 @@ const SearchAddressForm: React.FC = () => {
   { type: 'qualified', polygon: turf.polygon([indianTrail2Coordinates]) },
   { type: 'qualified', polygon: turf.polygon([RDOF3Coordinates]) },
   { type: 'rdof', polygon: turf.polygon([RDOF4Coordinates]) },
+  // { type: 'RDOF5', polygon: turf.polygon([RDOF5Coordinates]) },
   
 ];
 
