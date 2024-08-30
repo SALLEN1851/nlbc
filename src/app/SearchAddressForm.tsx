@@ -118,11 +118,11 @@ const SearchAddressForm: React.FC = () => {
       const point = turf.point(coordinates);
      const polygons = [
   { type: 'qualified', polygon: turf.polygon([MeekRdCoordinates]) },
-  { type: 'qualified', polygon: turf.polygon([WhiteWaterCoordinates]) },
-  { type: 'qualified', polygon: turf.polygon([SunSetAreaCoordinates]) },
+  // { type: 'qualified', polygon: turf.polygon([WhiteWaterCoordinates]) },
+  // { type: 'qualified', polygon: turf.polygon([SunSetAreaCoordinates]) },
   { type: 'leadLine', polygon: turf.polygon([LeadLineCoordinates]) },
-  { type: 'rdof', polygon: turf.polygon([RDOFCoordinates]) },
-  { type: 'qualified', polygon: turf.polygon([MattieHarrisCoordinates]) },
+  // { type: 'rdof', polygon: turf.polygon([RDOFCoordinates]) },
+  // { type: 'qualified', polygon: turf.polygon([MattieHarrisCoordinates]) },
   { type: 'nltc', polygon: turf.polygon([NLTC]) },
   { type: 'qualified', polygon: turf.polygon([polygon411Coordinates]) },
   { type: 'qualified', polygon: turf.polygon([polygon110Coordinates]) },
