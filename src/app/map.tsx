@@ -204,25 +204,26 @@ const submitAddress = async () => {
 
       const point = turf.point(coordinates);
 
-      // Determine which polygon the point is inside
-      const foundPolygon = polygons.find((polygon) =>
-        turf.booleanPointInPolygon(point, turf.polygon([polygon.coordinates]))
-      );
+     // Determine which polygon the point is inside
+      const foundPolygon = polygons.find((polygon) => {
+        const polyCoordinates = Array.isArray(polygon.coordinates)
+          ? polygon.coordinates
+          : (polygon.coordinates.geometry as GeoJSON.Polygon).coordinates[0]; // Ensure correct format
 
-      if (!foundPolygon) {
+        return turf.booleanPointInPolygon(point, turf.polygon([polyCoordinates]));
+      });
+
+      if (foundPolygon) {
+        console.log('Found polygon:', foundPolygon.name);
+        setPolygonProps({
+          fullAddress,
+          areaType: foundPolygon.name,
+        });
+      } else {
+        console.log('No polygon found');
         window.location.href = "https://nlbc.com/check-service-area/";
         return;
       }
-
-      console.log('Found polygon:', foundPolygon.name);
-
-
-      
-      // Update state with the found polygon's name
-      setPolygonProps({
-        fullAddress,
-        areaType: foundPolygon.name,
-      });
     }
   } catch (error) {
     console.error("Error:", error);
