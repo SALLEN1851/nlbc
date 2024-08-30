@@ -36,7 +36,6 @@ import {
   indianTrail2Coordinates,
   RDOF3Coordinates,
   RDOF4Coordinates,
-  RDOF5Coordinates,
 } from './coordinates';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
