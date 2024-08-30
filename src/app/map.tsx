@@ -108,52 +108,55 @@ const Map: React.FC = () => {
   };
 
   useEffect(() => {
-    if (mapContainerRef.current) {
-      const map = new mapboxgl.Map({
-        container: mapContainerRef.current,
-        style: "mapbox://styles/mapbox/light-v10",
-        center: [-85.157944, 39.910799],
-        zoom: 10,
+  if (mapContainerRef.current) {
+    const map = new mapboxgl.Map({
+      container: mapContainerRef.current,
+      style: "mapbox://styles/mapbox/light-v10",
+      center: [-85.157944, 39.910799],
+      zoom: 10,
+    });
+
+    // Use a single "load" event listener
+    map.on("load", () => {
+      // Set map reference
+      mapRef.current = map;
+
+      // Add the RDOF5 polygon source and layer
+      map.addSource("RDOF5Coordinates", {
+        type: "geojson",
+        data: RDOF5Coordinates,
       });
 
-map.on('load', function () {
-  map.addSource('RDOF5Coordinates', {
-    'type': 'geojson',
-    'data': RDOF5Coordinates
-  });
-
-  map.addLayer({
-    'id': 'RDOF5',
-    'type': 'fill',
-    'source': 'RDOF5Coordinates',
-    'layout': {},
-    'paint': {
-      'fill-color': "#DEA731",
-      'fill-opacity': 0.3,
-    }
-  });
-});
-
-
-      map.on("load", () => {
-        mapRef.current = map;
-
-        // Add all polygons
-        polygons.forEach((polygon) => {
-          addPolygon(map, polygon.coordinates, polygon.name, polygon.color);
-        });
+      map.addLayer({
+        id: "RDOF5",
+        type: "fill",
+        source: "RDOF5Coordinates",
+        layout: {},
+        paint: {
+          "fill-color": "#DEA731",
+          "fill-opacity": 0.3,
+        },
       });
 
+      // Add all polygons using your custom function
+      polygons.forEach((polygon) => {
+        addPolygon(map, polygon.coordinates, polygon.name, polygon.color);
+      });
+
+      // Initialize the geocoder and attach it to the map
       const geocoder = new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
       });
 
       document.getElementById("geocoder")?.appendChild(geocoder.onAdd(map));
+    });
 
-      return () => map.remove();
-    }
-  }, []);
+    // Cleanup on component unmount
+    return () => map.remove();
+  }
+}, []);
+
 
   useEffect(() => {
     const submitBtn = document.getElementById("submit-btn");
