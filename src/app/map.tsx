@@ -146,7 +146,7 @@ const Map: React.FC = () => {
         // Ensure coordinates are properly extracted
         const coordinates = Array.isArray(polygon.coordinates)
           ? polygon.coordinates
-          : polygon.coordinates.geometry.coordinates[0];
+          : polygon.coordinates.geometry as GeoJSON.Polygon).coordinates[0];
 
         addPolygon(map, coordinates, polygon.name, polygon.color);
       });
