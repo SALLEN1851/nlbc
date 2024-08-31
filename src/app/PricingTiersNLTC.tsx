@@ -40,7 +40,7 @@ const tiers = [
   },
 ];
 
-export function PricingTiersNLTC( {fullAddress}: PricingTiersProps) {
+export function PricingTiersNLTC( {fullAddress}: PricingTiersNLTCProps) {
     console.log('PricingTiers fullAddress:', fullAddress);
 
   return (
