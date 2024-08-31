@@ -38,6 +38,7 @@ import {
   RDOF3Coordinates,
   RDOF4Coordinates,
 } from './coordinates';
+import PricingTiersInterest from './PricingTiersInterest';
 
 mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN!;
 
@@ -199,15 +200,16 @@ const SearchAddressForm: React.FC = () => {
       {showForm && <ZoneContainer />}
       {!showForm && (
         <div className="text-xl w-full">
-          {fullAddress && (
+          {/* {fullAddress && (
             <PolygonMessage
               fullAddress={fullAddress}
               areaType={areaType}
               showPricingTiers={areaType === 'qualified'} 
               showPricingTiersNLTC={areaType === 'nltc'}
               showPricingTiersPreConstruction={areaType === 'rdof'}
+              showPricingTiersInterest={areaType === 'leadLine'}
             />
-          )}
+          )} */}
         </div>
       )}
       {areaType === 'qualified' && fullAddress && (
@@ -218,6 +220,9 @@ const SearchAddressForm: React.FC = () => {
       )}
          {areaType === 'rdof' && fullAddress && (
         <PricingTiersPreConstruction fullAddress={fullAddress} />
+      )}
+         {areaType === 'leadLine' && fullAddress && (
+        <PricingTiersInterest fullAddress={fullAddress} />
       )}
     </div>
   );
