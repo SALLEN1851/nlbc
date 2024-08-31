@@ -13,7 +13,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, 
   }
 
   const messages: { [key: string]: React.ReactNode } = {
-    qualified: <PricingTiers />,
+    qualified: 
 
     
     leadLine: (
