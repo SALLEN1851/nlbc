@@ -1,5 +1,9 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
 
+interface PricingTiersProps {
+    fullAddress: string;
+}
+
 const tiers = [
   {
     name: 'Standard Fiber',
@@ -36,7 +40,7 @@ const tiers = [
   },
 ];
 
-export function PricingTiers( {fullAddress} ) {
+export function PricingTiers( {fullAddress}: PricingTiersProps) {
     console.log('PricingTiers fullAddress:', fullAddress);
 
   return (
