@@ -6,6 +6,7 @@ import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
 import PolygonMessage from './PolygonMessage';
 import PricingTiers from './pricingTiers';
+import PricingTiersNLTC from './PricingTiersNLTC';
 import ZoneContainer from './zoneContainer';
 import {
   MeekRdCoordinates,
@@ -202,12 +203,16 @@ const SearchAddressForm: React.FC = () => {
               fullAddress={fullAddress}
               areaType={areaType}
               showPricingTiers={areaType === 'qualified'} 
+              showPricingTiersNLTC={areaType === 'nltc'}
             />
           )}
         </div>
       )}
       {areaType === 'qualified' && fullAddress && (
         <PricingTiers fullAddress={fullAddress} />
+      )}
+      {areaType === 'nltc' && fullAddress && (
+        <PricingTiersNLTC fullAddress={fullAddress} />
       )}
     </div>
   );

@@ -1,13 +1,15 @@
 import React from 'react';
 import PricingTiers from './pricingTiers';
+import PricingTiersNLTC from './PricingTiersNLTC';
 
 interface PolygonMessageProps {
   fullAddress: string;
   areaType: string | null;
   showPricingTiers: boolean;
+  showPricingTiersNLTC: boolean;
 }
 
-const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, showPricingTiers }) => {
+const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, showPricingTiers, showPricingTiersNLTC }) => {
   if (!areaType) {
     return null;
   }
@@ -51,36 +53,11 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, 
         </div>
       </>
     ),
-    nltc: (
-      <>
-        <h2 className="text-2xl font-semibold mb-4">You&apos;re Qualified!</h2>
-        <p>
-          <strong>{fullAddress}</strong> is qualified for fiber optic internet service.
-        </p>
-        <p className="mt-4">
-          If you would like fiber optic internet service at your residence, please click the sign-up now
-          button and you can fill out the residential service agreement.
-        </p>
-        <div className="mt-4 text-center">
-          <a
-            href="https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff"
-            className="inline-block px-4 py-2 bg-blue-500 text-white font-semibold rounded-md shadow hover:bg-blue-600"
-          >
-            Sign up now
-          </a>
-        </div>
-      </>
-    ),
-    default: (
-      <p>
-        Contact us to confirm service availability at <strong>{fullAddress}</strong>.
-      </p>
-    ),
+    nltc: showPricingTiersNLTC && <PricingTiersNLTC fullAddress={fullAddress} />,
   };
-
   return (
   <div className="mx-auto max-w-full">
-    
+    {messages[areaType] || messages.default}
     </div>
   );
 };

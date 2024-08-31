@@ -1,6 +1,6 @@
 import { CheckIcon } from '@heroicons/react/20/solid';
 
-interface PricingTiersProps {
+interface PricingTiersNLTCProps {
     fullAddress: string;
 }
 
@@ -8,7 +8,7 @@ const tiers = [
   {
     name: 'Standard Fiber',
     id: 'tier-hobby',
-    href: "https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65",
+    href: "https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff",
     priceMonthly: '$65',
     description: 'Introducing our Standard Fiber Package, designed to deliver optimal performance for small households with efficient and reliable internet connectivity.',
     features: ['Ideal for households with less than 3 people', 'Suitable for basic internet usage', 'Supports light streaming activities', 'Provides 100x100 Mbps speed'],
@@ -16,7 +16,7 @@ const tiers = [
   {
     name: 'Pro Fiber',
     id: 'tier-team',
-    href: "https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65",
+    href: "https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff",
     priceMonthly: '$85',
     description: 'Introducing our Pro Fiber Package, the ideal choice for those who need top-tier performance for streaming, gaming, or working from home.',
     features: [
@@ -28,7 +28,7 @@ const tiers = [
   {
     name: 'Go Big & Go Gig Fiber',
     id: 'tier-enterprise',
-    href: "https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65",
+    href: "https://nlbcnltc.eversign.com/embedded/56177ffa0115439ea4d01d06007a99ff",
     priceMonthly: '$99',
     description: 'Introducing our Go Big & Go Gig Fiber Package, the ultimate solution for tech enthusiasts and large families who demand the fastest speeds and ample bandwidth.',
     features: [
@@ -40,7 +40,7 @@ const tiers = [
   },
 ];
 
-export function PricingTiers( {fullAddress}: PricingTiersProps) {
+export function PricingTiersNLTC( {fullAddress}: PricingTiersProps) {
     console.log('PricingTiers fullAddress:', fullAddress);
 
   return (
@@ -129,4 +129,4 @@ export function PricingTiers( {fullAddress}: PricingTiersProps) {
   );
 }
 
-export default PricingTiers;
+export default PricingTiersNLTC;
