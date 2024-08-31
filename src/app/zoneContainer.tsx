@@ -2,7 +2,7 @@ import React from 'react';
 
 const ZoneContainer = () => {
   return (
-    <div className="flex flex-wrap font-sans">
+    <div className="flex flex-wrap font-sans w-full">
       <div className="zone-col bg-purple-800 text-white p-4 h-52 relative flex-col">
         <span className="zone-num text-4xl flex-wrap">1</span>
         <h2 className="mb-4 font-semibold text-xl leading-tight">Interest</h2>

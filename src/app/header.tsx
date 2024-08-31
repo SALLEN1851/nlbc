@@ -29,7 +29,7 @@ const Header: React.FC = () => {
             <a href="https://nlbc.com/tutorial/" className="text-sm font-normal leading-6 my-2 text-gray-900">
               Tutorials
             </a>
-            <a href="https://nlbc.com/pay-your-bill/" className="text-sm font-semibold leading-6 text-white bg-secondary hover:bg-blue-600 px-8 py-2 rounded-3xl">
+            <a href="https://nlbc.com/pay-your-bill/" className="text-sm font-semibold leading-6 text-white bg-secondary hover:bg-cyan-900 px-8 py-2 rounded-3xl">
               Pay Bill
             </a>
           </div>

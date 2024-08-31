@@ -5,6 +5,8 @@ import mapboxgl from 'mapbox-gl';
 import * as turf from '@turf/turf';
 import AddressForm from './AddressForm';
 import PolygonMessage from './PolygonMessage';
+import PricingTiers from './pricingTiers';
+import ZoneContainer from './zoneContainer';
 import {
   MeekRdCoordinates,
   LeadLineCoordinates,
@@ -100,6 +102,7 @@ const SearchAddressForm: React.FC = () => {
       console.log('Coordinates:', coordinates);
       setShowForm(false);
       setFullAddress(formData.fullAddress); // Store the full address in state
+      console.log('fullAddress:', formData.fullAddress);
       const map = mapRef.current;
       if (map) {
         map.flyTo({
@@ -180,32 +183,31 @@ const SearchAddressForm: React.FC = () => {
     }
   };
 
-  const handleResetForm = () => {
-    setShowForm(true);
-    setAreaType(null);
-    setFullAddress(null);
-  };
+  // const handleResetForm = () => {
+  //   setShowForm(true);
+  //   setAreaType(null);
+  //   setFullAddress(null);
+  // };
 
   
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center w-full">
       {showForm && <AddressForm onSubmit={handleFormSubmit} />}
+      {showForm && <ZoneContainer />}
       {!showForm && (
-        <div className="m-10 text-xl">
+        <div className="text-xl w-full">
           {fullAddress && (
             <PolygonMessage
               fullAddress={fullAddress}
               areaType={areaType}
+              showPricingTiers={areaType === 'qualified'} 
             />
           )}
-          <button
-            onClick={handleResetForm}
-            className="mt-4 px-4 py-2 bg-gray-500 text-white rounded shadow hover:bg-gray-600"
-          >
-            Reset Form
-          </button>
         </div>
+      )}
+      {areaType === 'qualified' && fullAddress && (
+        <PricingTiers fullAddress={fullAddress} />
       )}
     </div>
   );

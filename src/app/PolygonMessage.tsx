@@ -1,4 +1,5 @@
 import React from 'react';
+import PricingTiers from './pricingTiers';
 
 interface PolygonMessageProps {
   fullAddress: string;
@@ -11,26 +12,27 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType }
   }
 
   const messages: { [key: string]: React.ReactNode } = {
-    qualified: (
-      <>
-        <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">You&apos;re Qualified!</h2>
-        <p className="text-lg text-gray-600 leading-relaxed mb-4">
-          <strong className="text-gray-900">{fullAddress}</strong> is qualified for fiber optic internet service.
-        </p>
-        <p className="text-lg text-gray-600 leading-relaxed mb-6">
-          If you would like fiber optic internet service at your residence, please click the sign-up now
-          button to fill out the residential service agreement.
-        </p>
-        <div className="mt-6 text-center">
-          <a
-            href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65"
-            className="inline-block w-full md:w-auto px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 ease-in-out"
-          >
-            Sign up now
-          </a>
-        </div>
-      </>
-    ),
+    qualified: <PricingTiers />,
+    // (
+    //   <>
+    //     <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">You&apos;re Qualified!</h2>
+    //     <p className="text-lg text-gray-600 leading-relaxed mb-4">
+    //       <strong className="text-gray-900">{fullAddress}</strong> is qualified for fiber optic internet service.
+    //     </p>
+    //     <p className="text-lg text-gray-600 leading-relaxed mb-6">
+    //       If you would like fiber optic internet service at your residence, please click the sign-up now
+    //       button to fill out the residential service agreement.
+    //     </p>
+    //     <div className="mt-6 text-center">
+    //       <a
+    //         href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65"
+    //         className="inline-block w-full md:w-auto px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300 ease-in-out"
+    //       >
+    //         Sign up now
+    //       </a>
+    //     </div>
+    //   </>
+    
     leadLine: (
       <>
         <h2 className="section-heading">Area of Interest</h2>
@@ -94,18 +96,8 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType }
   };
 
   return (
-    <div className="mx-auto my-10 p-8 max-w-lg border border-gray-200 shadow-xl bg-white rounded-2xl">
-      {messages[areaType] || messages.default}
-      <p className="text-lg text-gray-600 leading-relaxed mt-8">
-        If you are interested in commercial internet service or would like to speak with a representative,{' '}
-        <a
-          href="https://share.hsforms.com/1IXoUM1AlTMClAEYjqMJr7w473vr"
-          id="form-link"
-          className="text-blue-600 font-medium underline hover:text-blue-800 transition-colors duration-300 ease-in-out"
-        >
-          please click here to fill out our contact form to have a representative reach out to you.
-        </a>
-      </p>
+  <div className="mx-auto max-w-full">
+    
     </div>
   );
 };
