@@ -14,6 +14,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType }
   const messages: { [key: string]: React.ReactNode } = {
     qualified: <PricingTiers />,
     // (
+    
     //   <>
     //     <h2 className="text-3xl font-bold text-gray-800 mb-6 text-center">You&apos;re Qualified!</h2>
     //     <p className="text-lg text-gray-600 leading-relaxed mb-4">
