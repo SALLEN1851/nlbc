@@ -7,6 +7,7 @@ import AddressForm from './AddressForm';
 import PolygonMessage from './PolygonMessage';
 import PricingTiers from './pricingTiers';
 import PricingTiersNLTC from './PricingTiersNLTC';
+import PricingTiersPreConstruction from './PricingTiersPreConstruction';
 import ZoneContainer from './zoneContainer';
 import {
   MeekRdCoordinates,
@@ -204,6 +205,7 @@ const SearchAddressForm: React.FC = () => {
               areaType={areaType}
               showPricingTiers={areaType === 'qualified'} 
               showPricingTiersNLTC={areaType === 'nltc'}
+              showPricingTiersPreConstruction={areaType === 'rdof'}
             />
           )}
         </div>
@@ -213,6 +215,9 @@ const SearchAddressForm: React.FC = () => {
       )}
       {areaType === 'nltc' && fullAddress && (
         <PricingTiersNLTC fullAddress={fullAddress} />
+      )}
+         {areaType === 'rdof' && fullAddress && (
+        <PricingTiersPreConstruction fullAddress={fullAddress} />
       )}
     </div>
   );

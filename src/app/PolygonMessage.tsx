@@ -1,15 +1,17 @@
 import React from 'react';
 import PricingTiers from './pricingTiers';
 import PricingTiersNLTC from './PricingTiersNLTC';
+import PricingTiersPreConstruction from './PricingTiersPreConstruction';
 
 interface PolygonMessageProps {
   fullAddress: string;
   areaType: string | null;
   showPricingTiers: boolean;
   showPricingTiersNLTC: boolean;
+  showPricingTiersPreConstruction: boolean;
 }
 
-const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, showPricingTiers, showPricingTiersNLTC }) => {
+const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, showPricingTiers, showPricingTiersNLTC, showPricingTiersPreConstruction }) => {
   if (!areaType) {
     return null;
   }
@@ -34,25 +36,7 @@ const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, 
         </div>
       </>
     ),
-    rdof: (
-      <>
-        <h2 className="section-heading">Pre-Construction</h2>
-        <p>
-          <strong>{fullAddress}</strong> is an area that is currently in the pre-construction phase which
-          means that we will soon begin placing fiber optic internet service in your area.
-          If you would like to pre-order your residential internet service, please click the sign-up now
-          button and you can fill out the agreement for service.
-        </p>
-        <div className="mt-4 text-center">
-          <a
-            href="https://nlbcnltc.eversign.com/embedded/552f574523c247f0821d4b984484ea65"
-            className="button-link"
-          >
-            Sign up now
-          </a>
-        </div>
-      </>
-    ),
+    rdof: showPricingTiersPreConstruction && <PricingTiersPreConstruction fullAddress={fullAddress} />,
     nltc: showPricingTiersNLTC && <PricingTiersNLTC fullAddress={fullAddress} />,
   };
   return (
