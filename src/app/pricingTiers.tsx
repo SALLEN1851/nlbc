@@ -45,7 +45,7 @@ export function PricingTiers( {fullAddress} ) {
         <div className="w-full">
           <h2 className="text-base font-semibold leading-7 text-white">Fiber Packages</h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-            You're Qualified
+            You&apos;re Qualified
           </p>
         </div>
         <div className="relative mt-6 w-full">
