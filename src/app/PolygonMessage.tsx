@@ -4,9 +4,10 @@ import PricingTiers from './pricingTiers';
 interface PolygonMessageProps {
   fullAddress: string;
   areaType: string | null;
+  showPricingTiers: boolean;
 }
 
-const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType }) => {
+const PolygonMessage: React.FC<PolygonMessageProps> = ({ fullAddress, areaType, showPricingTiers }) => {
   if (!areaType) {
     return null;
   }
