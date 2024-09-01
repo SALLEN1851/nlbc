@@ -40,8 +40,8 @@ const tiers = [
   },
 ];
 
-export function PricingTiersPreConstruction( {fullAddress}: PricingTiersPreConstructionProps) {
-    console.log('PricingTiers fullAddress:', fullAddress);
+export function PricingTiersPreConstruction({ fullAddress }: PricingTiersPreConstructionProps) {
+  console.log('PricingTiers fullAddress:', fullAddress);
 
   return (
     <div className="isolate overflow-hidden bg-gray-900">
@@ -54,23 +54,22 @@ export function PricingTiersPreConstruction( {fullAddress}: PricingTiersPreConst
         </div>
         <div className="relative mt-6 w-full">
           <p className="mx-auto text-lg w-full leading-8 text-white/60">
-          <strong>{fullAddress}</strong> is currently in the pre-construction phase which means
-          that we will soon begin placing fiber optic internet service in your area.
+            <strong>{fullAddress}</strong> is currently in the pre-construction phase which means
+            that we will soon begin placing fiber optic internet service in your area.
           </p>
           <p className="mx-auto text-1xl mt-10 w-full leading-8 text-white/90">If you would like to pre-order your residential internet service, please select a package below.</p>
           <svg
-  viewBox="0 0 1208 1024"
-  className="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0"
->
-  <ellipse cx={604} cy={512} rx={604} ry={512} fill="url(#customGradient)" />
-  <defs>
-    <radialGradient id="customGradient">
-      <stop offset="0%" stopColor="#00415A" />
-      <stop offset="100%" stopColor="#06B4DF" />
-    </radialGradient>
-  </defs>
-</svg>
-
+            viewBox="0 0 1208 1024"
+            className="absolute -top-10 left-1/2 -z-10 h-[64rem] -translate-x-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:-top-12 md:-top-20 lg:-top-12 xl:top-0"
+          >
+            <ellipse cx={604} cy={512} rx={604} ry={512} fill="url(#customGradient)" />
+            <defs>
+              <radialGradient id="customGradient">
+                <stop offset="0%" stopColor="#00415A" />
+                <stop offset="100%" stopColor="#06B4DF" />
+              </radialGradient>
+            </defs>
+          </svg>
         </div>
       </div>
       <div className="flow-root bg-white pb-24 sm:pb-32 w-full">
@@ -80,11 +79,12 @@ export function PricingTiersPreConstruction( {fullAddress}: PricingTiersPreConst
               {tiers.map((tier) => (
                 <div
                   key={tier.id}
-                  className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"
+                  className={`flex flex-col justify-between rounded-3xl p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10
+                  ${tier.name === 'Go Big & Go Gig Fiber' ? 'border-4 border-yellow-400 bg-yellow-50' : 'bg-white'}`}
                 >
                   <div>
-                    <h3 id={tier.id} className="text-base font-semibold leading-7 text-primary">
-                      {tier.name}
+                    <h3 id={tier.id} className={`text-base font-semibold leading-7 ${tier.name === 'Go Big & Go Gig Fiber' ? 'text-yellow-800' : 'text-primary'}`}>
+                      {tier.name} {tier.name === 'Go Big & Go Gig Fiber' && <span className="text-xs font-medium text-yellow-800">(Most Popular)</span>}
                     </h3>
                     <div className="mt-4 flex items-baseline gap-x-2">
                       <span className="text-5xl font-bold tracking-tight text-primary">{tier.priceMonthly}</span>
@@ -103,7 +103,8 @@ export function PricingTiersPreConstruction( {fullAddress}: PricingTiersPreConst
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="mt-8 block rounded-md bg-secondary px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    className={`mt-8 block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
+                    ${tier.name === 'Go Big & Go Gig Fiber' ? 'bg-yellow-800 hover:bg-yellow-700' : 'bg-secondary'}`}
                   >
                     Pre-Order
                   </a>
@@ -113,7 +114,7 @@ export function PricingTiersPreConstruction( {fullAddress}: PricingTiersPreConst
                 <div className="lg:min-w-0 lg:flex-1">
                   <h3 className="text-lg font-semibold leading-8 tracking-tight text-primary">Interested in Business Class Internet and Voice Solutions?</h3>
                   <p className="mt-1 text-base leading-7 text-gray-600">
-                  Introducing Business Class – Internet & Voice Services from NLBC, tailored to meet the unique needs of businesses in East Central Indiana and beyond. We deliver customized solutions with reliable networks designed to grow with your business.
+                    Introducing Business Class – Internet & Voice Services from NLBC, tailored to meet the unique needs of businesses in East Central Indiana and beyond. We deliver customized solutions with reliable networks designed to grow with your business.
                   </p>
                 </div>
                 <a
