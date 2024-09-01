@@ -2,6 +2,7 @@ import Header from './header';
 import Footer from './footer';
 import Map from './map'; 
 import SearchAddressForm from './SearchAddressForm'; 
+import { Analytics } from "@vercel/analytics/react"
 
 export default function Main() {
   return (
@@ -9,8 +10,8 @@ export default function Main() {
       <Header />
       <Map />
       <SearchAddressForm />
-      
       <Footer />
+      <Analytics />
     </div>
   );
 }
