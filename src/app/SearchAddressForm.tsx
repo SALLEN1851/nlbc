@@ -186,11 +186,7 @@ const SearchAddressForm: React.FC = () => {
     }
   };
 
-  // const handleResetForm = () => {
-  //   setShowForm(true);
-  //   setAreaType(null);
-  //   setFullAddress(null);
-  // };
+
 
   
 
