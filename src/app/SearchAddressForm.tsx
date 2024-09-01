@@ -72,7 +72,7 @@ const SearchAddressForm: React.FC = () => {
 
   const submitAddress = async (fullFormData: any) => {
     try {
-      const response = await fetch('https://nlbc.vercel.app/api/address', {
+      const response = await fetch('/api/address', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
