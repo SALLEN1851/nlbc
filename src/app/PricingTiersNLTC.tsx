@@ -78,7 +78,7 @@ export function PricingTiersNLTC({ fullAddress }: PricingTiersNLTCProps) {
                 <div
                   key={tier.id}
                   className={`flex flex-col justify-between rounded-3xl p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10
-                  ${tier.name === 'Go Big & Go Gig Fiber' ? 'border-4 border-yellow-400 bg-yellow-50' : 'bg-white'}`}
+                  ${tier.name === 'Go Big & Go Gig Fiber' ? 'border-4 border-yellow-500 bg-gray-100' : 'bg-white'}`}
                 >
                   <div>
                     <h3 id={tier.id} className={`text-base font-semibold leading-7 ${tier.name === 'Go Big & Go Gig Fiber' ? 'text-yellow-800' : 'text-primary'}`}>
@@ -102,7 +102,7 @@ export function PricingTiersNLTC({ fullAddress }: PricingTiersNLTCProps) {
                     href={tier.href}
                     aria-describedby={tier.id}
                     className={`mt-8 block rounded-md px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-cyan-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600
-                    ${tier.name === 'Go Big & Go Gig Fiber' ? 'bg-yellow-800 hover:bg-yellow-700' : 'bg-secondary'}`}
+                    ${tier.name === 'Go Big & Go Gig Fiber' ? 'bg-primary hover:bg-secondary' : 'bg-secondary'}`}
                   >
                     Get Started
                   </a>
