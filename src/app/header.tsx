@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         <div className="flex items-center">
           <a href="https://nlbc.com/" className="-m-1.5 p-1.5">
             <span className="sr-only">NLBC</span>
-            <img alt="NLBC" src="https://nlbc.com/wp-content/themes/wp-bootstrap-starter/images/logo-black.png" className="h-18 w-auto" />
+            <img alt="NLBC" src="https://nlbc.com/wp-content/themes/wp-bootstrap-starter/images/logo-black.png" className="h-18 w-[150px] sm:w-auto" />
           </a>
         </div>
         <div className="hidden lg:flex flex-col items-end space-y-2">
