@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     try {
-      const sql = neon(process.env.DATABASE_URL);
+      const sql = neon(process.env.DATABASE_URL!);
       console.log('Database URL:', process.env.DATABASE_URL);
 
      // Test the database connection with a simple query
