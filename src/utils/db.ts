@@ -1,23 +1,23 @@
-import mongoose from 'mongoose';
+// import mongoose from 'mongoose';
 
-let isConnected = false;
+// let isConnected = false;
 
-const connectDB = async () => {
-  if (isConnected) {
-    return;
-  }
-  if (!process.env.MONGO_URI) {
-    throw new Error('Please define the MONGO_URI environment variable inside .env.local');
-  }
+// const connectDB = async () => {
+//   if (isConnected) {
+//     return;
+//   }
+//   if (!process.env.MONGO_URI) {
+//     throw new Error('Please define the MONGO_URI environment variable inside .env.local');
+//   }
 
-  await mongoose.connect(process.env.MONGO_URI, {
-      connectTimeoutMS: 20000,  // 10 seconds
-      socketTimeoutMS: 45000,   // 45 seconds
-  });
-  isConnected = true;
-  console.log('Connected to MongoDB');
-};
+//   await mongoose.connect(process.env.MONGO_URI, {
+//       connectTimeoutMS: 20000,  // 10 seconds
+//       socketTimeoutMS: 45000,   // 45 seconds
+//   });
+//   isConnected = true;
+//   console.log('Connected to MongoDB');
+// };
 
-export default connectDB;
+// export default connectDB;
 
 
