@@ -1,7 +1,8 @@
 "use server";
 import { neon } from "@neondatabase/serverless";
+import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     console.log("API route /api/address called");
   if (req.method === 'POST') {
     const { fullAddress, streetAddress, city, state, zipcode, coordinates } = req.body;
