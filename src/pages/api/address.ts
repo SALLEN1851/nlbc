@@ -38,13 +38,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         VALUES (${streetAddress}, ${city}, ${state}, ${zipcode}, ${coordinates})
       `;
 
-      // Success response
-      res.status(200).json({ success: true, message: 'Form data saved successfully' });
-    } catch (error) {
-      console.error('Error inserting data into NeonDB:', error.message);
-      res.status(500).json({ error: 'Internal Server Error', details: error.message });
+          // Success response
+          res.status(200).json({ success: true, message: 'Form data saved successfully' });
+        } catch (error) {
+            // Use type assertion or type guard to handle the error safely
+            if (error instanceof Error) {
+                console.error('Error inserting data into NeonDB:', error.message);
+                res.status(500).json({ error: 'Internal Server Error', details: error.message });
+            } else {
+                console.error('Unknown error occurred:', error);
+                res.status(500).json({ error: 'Internal Server Error', details: 'An unknown error occurred' });
+            }
+        }
+    } else {
+        res.status(405).json({ error: 'Method not allowed' });
     }
-  } else {
-    res.status(405).json({ error: 'Method not allowed' });
-  }
 }
