@@ -1,0 +1,3 @@
+[submodule "nlbc"]
+	path = nlbc
+	url = https://github.com/SALLEN1851/nlbc.git
